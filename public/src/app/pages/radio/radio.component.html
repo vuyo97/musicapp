@@ -1,0 +1,25 @@
+<div class="w3-container mt-3 ">
+   <a href="/radio"><h3>Radio</h3></a>
+    <div class="w3-display-container w3-hover-opacity w3-col m2 mr-10" *ngFor="let rad of radio" >
+      <img src="{{rad.picture}}" alt="Avatar" style="width:100%" class="w3-circle">
+      <div class="w3-display-middle w3-display-hover w3-large">
+        <p class="w3-text-white">{{rad.data.title}}</p>
+      </div>
+    </div>
+    
+  
+    <div class="w3-display-container w3-hover-opacity w3-col m2 mr-10" >
+      <img src="{{imageSrc}}" alt="Avatar" style="width:100%" class="w3-circle">
+      <div class="w3-display-middle  w3-large">
+        <p class="">John Doe</p>
+      </div>
+    </div>
+    
+    <div class="w3-display-container w3-hover-opacity w3-col m2 mr-10" >
+      <img src="{{imageSrc}}" alt="Avatar" style="width:100%" class="w3-circle">
+      <div class="w3-display-middle w3-display-hover w3-large">
+        <p class="">John Doe</p>
+      </div>
+    </div>
+</div>
+

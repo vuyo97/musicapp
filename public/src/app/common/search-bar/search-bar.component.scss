@@ -1,0 +1,16 @@
+#search{
+    display:inline-flex;
+    background-color:inherit;
+    font-weight: 100;
+    border-radius:20px;
+    width: 100%;
+    border-color:1px solid grey;
+
+}
+
+#search:active{
+    background-color:white;
+}
+#search:hover{
+    border:1px solid red;
+}

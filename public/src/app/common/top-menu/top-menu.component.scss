@@ -1,0 +1,41 @@
+.top-menu{
+    padding:12px;
+}
+.logo{
+    color:Red;
+    font-size:large;
+    padding : 5px 0px;
+}
+
+.artist-img{
+    border-radius:50%
+}
+.top-menu{
+    height:60px
+}
+
+#search-container{
+    top:0;
+    width:40%;
+    right:0;
+    left:0;
+// background-color:black;
+    height:30px;
+    margin:0px 0px 20px 120px;
+}
+
+a{
+    text-transform: none;
+    text-decoration:none;
+}
+
+a:hover {
+    color:red;
+  //  background-color:blue;
+    font-weight:600;
+    text-decoration:none;
+}
+
+a:active {
+    color:Red;
+}
