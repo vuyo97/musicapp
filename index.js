@@ -1,11 +1,13 @@
 const Joi = require('joi');
 const express = require('express');
-const movies = require('./routes/movies');
-const deezer = require('./routes/deezer');
 const path = require('path');
 const app = express();
-const connectDB = require('./db/connect');
+//var favicon = require('serve-favicon')
 require('dotenv').config();
+const movies = require('./routes/movies');
+const deezer = require('./routes/deezer');
+const connectDB = require('./db/connect');
+
 const notFound = require('./middleware/not-found');
 const errorHandlerMiddleware= require('./middleware/error-handler')
 
@@ -13,9 +15,10 @@ const errorHandlerMiddleware= require('./middleware/error-handler')
 const port = process.env.PORT || 5000;
 
 //middleware
+//app.use(favicon(path.join(__dirname, 'public','favicon.ico')))
 app.use(express.static(path.join(__dirname,'/public/dist/musicdb-app-angular/')));
 app.use(express.json());
-app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
+
 //routes
 app.use('/api/movies', movies);
 app.use('/api/deezer', deezer);
