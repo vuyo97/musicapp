@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule , CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http'
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -24,7 +24,7 @@ import { TabComponent } from './pages/profile/tabs/tab.component';
 // import { FontAwesomeModule, FaIconLibrary ,FaConfig } from '@fortawesome/angular-fontawesome';
 // import { fas } from '@fortawesome/free-solid-svg-icons';
 
-NgModule({
+@NgModule({
   declarations: [
     AppComponent,
     TopMenuComponent,
@@ -50,6 +50,7 @@ NgModule({
     ReactiveFormsModule
    // FontAwesomeModule
   ],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   providers: [ApiDataService],
   bootstrap: [AppComponent]
 })
