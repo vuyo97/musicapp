@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-var DZ = require('node-deezer');
+//import {DZ} from '../../../assets/player/dz.js';
+const DZ = require('../../../assets/player/dz.js');
 
 @Component({
   selector: 'app-player-bar',
@@ -7,20 +8,33 @@ var DZ = require('node-deezer');
   styleUrls: ['./player-bar.component.scss']
 })
 export class PlayerBarComponent implements OnInit {
+	imageSrc='play_icon.png';
 
   constructor() { }
 
   ngOnInit(): void {
-    DZ.init({
-		appId  : '514702',
-		channelUrl : 'http://localhost:5000/browse',
-		player : {
-			container: 'player',
-			width : 500,
-			height : 80,
-			onload : function(){console.log('Player loaded!!!')}
-		}
-	});
-  }
+    // DZ.init({
+	// 	appId  : '514702',
+	// 	channelUrl : 'http://localhost:5000/api/deezer/callback',
+	// 	player : {
+	// 		container: 'player',
+	// 		width : 500,
+	// 		height : 80,
+	// 		onload : function(){console.log('Player loaded!!!')}
+	// 	}
+	// });
+   }
+
+   play(){
+	// DZ.login(function(response: { authResponse: any; }) {
+	// 	if (response.authResponse) {
+		 // toggle.style.display = "block"
+		//  login.style.display  = "none"            
+		  DZ.player.play()
+	// 	} else {
+	// 	  // login failed
+	// 	}
+	//   })
+   }
 
 }

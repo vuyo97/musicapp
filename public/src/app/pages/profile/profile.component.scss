@@ -12,8 +12,9 @@
 }
 
 .br{
-    border-radius:5px;
-    box-shadow: grayscale($color: #000000);
+    border-radius:3px;
+    // box-shadow: grayscale($color: #000000);
+    box-shadow: 0 0px 0px 0 rgb(0 0 0 / 15%), 0 0px 7px rgb(0 0 0 / 10%);
     height:auto;
 }
 .br-5{

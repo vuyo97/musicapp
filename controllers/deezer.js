@@ -30,14 +30,19 @@ const getArtists = async (req,res,result) => {
 
  
 const login = asyncWrapper(async (req,res)=>{
-    const apiAuth="https://connect.deezer.com/oauth/auth.php?app_id=514702&redirect_uri=/browse&perms=basic_access,email";
+    const apiAuth='https://connect.deezer.com/oauth/auth.php?app_id=514702&redirect_uri=http://localhost/&perms=basic_access,email';
   await axios.get(apiAuth).then(result => {
-     res.status(200).json({data : result.data})
+     res.status(200).send(result.data)
  });
  //if(!genre) return next(createCustomError(`No Genre with id : ${id}`, 404));
  
  
  })
+
+const callback = asyncWrapper(async (req,res)=>{
+     res.status(200).send('public/src/assets/player/dz.js')
+ })
+
 const search = asyncWrapper(async (req,res)=>{
 
     const {id : artistID} = req.params;
@@ -71,7 +76,7 @@ const getArtistTop = asyncWrapper(async (req,res)=>{
 
     const {id : artistID} = req.params;
     console.log(req.params);
-  const result = await axios.get(`https://api.deezer.com/artist/${artistID}/top`).then(artist => {
+  const result = await axios.get(`https://api.deezer.com/artist/${artistID}/top?limit=50`).then(artist => {
 
  const {data}=artist;
    res.status(200).json({data});
@@ -135,5 +140,6 @@ const initRadio = asyncWrapper(async (req,res)=>{
     search,
     initRadio,
     getArtistAlbums,
-    getArtistTop
+    getArtistTop,
+    callback
 }

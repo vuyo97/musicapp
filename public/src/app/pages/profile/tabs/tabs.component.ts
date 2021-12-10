@@ -5,12 +5,20 @@ import { TabComponent } from './tab.component';
   template: `
   <ul class="nav nav-tabs">
     <li *ngFor="let tab of tabs" (click)="selectTab(tab)" [class.active]="tab.active">
-      <a class="w3-bar-item">{{tab.title}}</a>
+      <a class="w3-bar-item tab-title">{{tab.title}}</a>
     </li>
   </ul>
   <ng-content></ng-content>
 `,
-  styleUrls: ['./tabs.component.scss']
+styles: [
+  `
+  .tab-close {
+    color: gray;
+    text-align: right;
+    cursor: pointer;
+  }
+  `,
+]
 })
 export class TabsComponent implements AfterContentInit {
   //[x: string]: any;

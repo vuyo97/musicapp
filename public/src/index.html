@@ -5,9 +5,18 @@
   <title>Musicdb</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://e-cdns-files.dzcdn.net/js/min/dz.js"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+ 
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
+  <div id="dz-root"></div>
+ 
   <app-root></app-root>
+  <div class="bar">
+    <div id="player"></div>
+  <button (click)='play()'> play</button>
+</div>
 </body>
 </html>

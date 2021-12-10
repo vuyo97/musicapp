@@ -9,7 +9,6 @@ require('dotenv').config();
 const notFound = require('./middleware/not-found');
 const errorHandlerMiddleware= require('./middleware/error-handler')
 
-var DZ = require('./public/src/assets/player/');
 
 const port = process.env.PORT || 5000;
 
