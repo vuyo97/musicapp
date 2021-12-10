@@ -1,5 +1,6 @@
 import {Component, ContentChildren,QueryList,AfterContentInit,ViewChild,ComponentFactoryResolver,ViewContainerRef} from '@angular/core';
 import { TabComponent } from './tab.component';
+
 @Component({
   selector: 'app-tabs',
   template: `

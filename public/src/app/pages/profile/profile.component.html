@@ -21,7 +21,6 @@
 <div class="w3-container w3-col m12  mt-20 mb-5">
    
        <app-tabs>
-       
         <my-tab class="tab-headers" [tabTitle]="'Discography'">
           <div class="w3-row">
         <div class="w3-container artist-tab  w3-animate-zoom w3-col m7 l9 " id="discography">
@@ -109,8 +108,9 @@
             </div>
           </div>
           </div>
-      </my-tab>
-    
+        </my-tab>
+
+    <!--top tracks-->
         <my-tab tab-headers [tabTitle]="'Tracks'" id="tracks">
           <div class="w3-container artist-tab w3-animate-zoom w3-col m12 l12 " id="tracks">
             <div class="w3-col m12 card-container">
@@ -140,7 +140,90 @@
           
           </div>
         </my-tab>
-        </app-tabs>
+
+    <!--playlist-->
+        <my-tab tab-headers [tabTitle]="'Playlists'" id="Playlists">
+          <div class="w3-container artist-tab w3-animate-zoom w3-col m12 l12 " id="Playlists">
+            <div class="w3-col m12 card-container">
+              <!-- <table class="table">
+                <tbody>
+                  <tr>
+                    <td>#</td>
+                    <td>Title</td>
+                    <td></td>
+                    <td></td>
+                    <td>Duration</td>
+                  </tr>
+                    <tr  *ngFor="let track of tracks[0].data.data  | slice:0:30 let b=index">
+                    <td >{{b + 1}}</td>
+                    <td>{{track.title_short}}</td>
+                    <td><a href="{{track.link}}">Play</a></td>
+                    <td><span *ngIf="track.explicit_lyrics" class="w3-badge w3-round w3-text-white w3-grey w3-border w3-tiny" style="padding:1px 5px 1px 5px">E</span>
+                     <span  *ngIf="!track.explicit_lyrics" style="padding:1px 5px 1px 5px"> </span></td>
+                    <td>{{track.duration | duration}}</td>
+                  </tr>
+                </tbody>
+              </table> -->
+              <div class="w3-container">
+                <!-- <p class="title"><input type="button" class="w3-btn w3-white w3-text-cyan w3-border w3-border-cyan w3-round-xxlarge" value="see more tracks"></p> -->
+              </div>
+            </div>
+          
+          </div>
+        </my-tab>
+
+        <!--Albums-->
+        <my-tab tab-headers [tabTitle]="'Albums'" id="Albums">
+          <div class="w3-container artist-tab w3-animate-zoom w3-col m12 l12 " id="Albums">
+            <div class="w3-col m12 card-container">
+             
+              <div class="w3-container">
+                <!-- <p class="title"><input type="button" class="w3-btn w3-white w3-text-cyan w3-border w3-border-cyan w3-round-xxlarge" value="see more tracks"></p> -->
+              </div>
+            </div>
+          
+          </div>
+        </my-tab>
+
+         <!--Radio-->
+        <my-tab tab-headers [tabTitle]="'Radio'" id="Radio">
+          <div class="w3-container artist-tab w3-animate-zoom w3-col m12 l12 " id="Radio">
+            <div class="w3-col m12 card-container">
+             
+              <div class="w3-container">
+                <!-- <p class="title"><input type="button" class="w3-btn w3-white w3-text-cyan w3-border w3-border-cyan w3-round-xxlarge" value="see more tracks"></p> -->
+              </div>
+            </div>
+          
+          </div>
+        </my-tab>
+
+        <!--Related-->
+        <my-tab tab-headers [tabTitle]="'Related'" id="Related">
+          <div class="w3-container artist-tab w3-animate-zoom w3-col m12 l12 " id="Related">
+            <div class="w3-col m12 card-container">
+             
+              <div class="w3-container">
+                <!-- <p class="title"><input type="button" class="w3-btn w3-white w3-text-cyan w3-border w3-border-cyan w3-round-xxlarge" value="see more tracks"></p> -->
+              </div>
+            </div>
+          
+          </div>
+        </my-tab>
+
+        <!--Fans-->
+        <my-tab tab-headers [tabTitle]="'Fans'" id="fans">
+          <div class="w3-container artist-tab w3-animate-zoom w3-col m12 l12 " id="fans">
+            <div class="w3-col m12 card-container">
+             
+              <div class="w3-container">
+                <!-- <p class="title"><input type="button" class="w3-btn w3-white w3-text-cyan w3-border w3-border-cyan w3-round-xxlarge" value="see more tracks"></p> -->
+              </div>
+            </div>
+          
+          </div>
+        </my-tab>
+      </app-tabs>
 </div>
 
 </div>

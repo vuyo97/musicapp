@@ -6,9 +6,6 @@ import 'rxjs-compat/add/operator/map'
 import '../common/search-bar/search-bar.component'
 
 
-@Injectable({
- providedIn: 'root'
-})
 export class ApiDataService {
   [x: string]: any;
   searchName : any;

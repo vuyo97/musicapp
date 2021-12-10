@@ -24,7 +24,7 @@ import { TabComponent } from './pages/profile/tabs/tab.component';
 // import { FontAwesomeModule, FaIconLibrary ,FaConfig } from '@fortawesome/angular-fontawesome';
 // import { fas } from '@fortawesome/free-solid-svg-icons';
 
-@NgModule({
+NgModule({
   declarations: [
     AppComponent,
     TopMenuComponent,
