@@ -2,7 +2,7 @@ const Joi = require('joi');
 const express = require('express');
 const path = require('path');
 const app = express();
-//var favicon = require('serve-favicon')
+var favicon = require('serve-favicon')
 require('dotenv').config();
 const movies = require('./routes/movies');
 const deezer = require('./routes/deezer');
@@ -15,7 +15,7 @@ const errorHandlerMiddleware= require('./middleware/error-handler')
 const port = process.env.PORT || 5000;
 
 //middleware
-//app.use(favicon(path.join(__dirname, 'public','favicon.ico')))
+app.use(favicon(path.join(__dirname, 'public','favicon.ico')))
 app.use(express.static(path.join(__dirname,'/public/dist/musicdb-app-angular/')));
 app.use(express.json());
 
