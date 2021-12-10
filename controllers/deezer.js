@@ -30,7 +30,7 @@ const getArtists = async (req,res,result) => {
 
  
 const login = asyncWrapper(async (req,res)=>{
-    const apiAuth='https://connect.deezer.com/oauth/auth.php?app_id=514702&redirect_uri=http://localhost/&perms=basic_access,email';
+    const apiAuth=`https://connect.deezer.com/oauth/auth.php?app_id=514702&redirect_uri=${process.env.PORT}&perms=basic_access,email`;
   await axios.get(apiAuth).then(result => {
      res.status(200).send(result.data)
  });

@@ -15,7 +15,7 @@ export class PlayerBarComponent implements OnInit {
   ngOnInit(): void {
     // DZ.init({
 	// 	appId  : '514702',
-	// 	channelUrl : 'http://localhost:5000/api/deezer/callback',
+	// 	channelUrl :`${process.env.PORT}/api/deezer/callback`,
 	// 	player : {
 	// 		container: 'player',
 	// 		width : 500,
