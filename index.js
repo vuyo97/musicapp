@@ -15,7 +15,7 @@ const port = process.env.PORT || 5000;
 //middleware
 app.use(express.static(path.join(__dirname,'/public/dist/musicdb-app-angular/')));
 app.use(express.json());
-
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
 //routes
 app.use('/api/movies', movies);
 app.use('/api/deezer', deezer);
