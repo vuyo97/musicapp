@@ -2,13 +2,7 @@ import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'my-tab',
-  styles: [
-    `
-    .pane{
-      padding: 1em;
-    }
-  `,
-  ],
+  styleUrls: ['./tabs.component.scss'],
   template: `
     <div [hidden]="!active" class="pane">
       <ng-content></ng-content>

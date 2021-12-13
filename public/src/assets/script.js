@@ -7,10 +7,11 @@
 //       }
 //     }
 //   })
-
+DZ.ready(function(sdk_options){
+    console.log('DZ sdk is ready', sdk_options);
 DZ.init({
     appId  : '514702',
-    channelUrl : `/api/deezer/callback`,
+    channelUrl : `http://localhost:3000/api/deezer/callback`,
     player : {
         container: 'player',
         width : 1280,
@@ -22,4 +23,5 @@ DZ.init({
             }catch(err){console.log(err)};
 }
     }
+})
 });

@@ -11,15 +11,7 @@ import { TabComponent } from './tab.component';
   </ul>
   <ng-content></ng-content>
 `,
-styles: [
-  `
-  .tab-close {
-    color: gray;
-    text-align: right;
-    cursor: pointer;
-  }
-  `,
-]
+styleUrls: ['./tabs.component.scss']
 })
 export class TabsComponent implements AfterContentInit {
   //[x: string]: any;
