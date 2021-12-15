@@ -145,12 +145,14 @@ export class ApiDataService {
        
       });
     }
+
     getChartAlbums(){
       return this.http.get('/api/deezer/charts/albums').map(albums => {
       return albums;
        
       });
     }
+    
     getChartArtists(){
       return this.http.get('/api/deezer/charts/artists').map(artists => {
         return artists;

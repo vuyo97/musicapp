@@ -4,8 +4,8 @@
   "scripts": {
     "ng": "ng",
     "prestart": "npm install",
-    "start": "ng serve -o",
-    "build": "ng build && nodemon index.js",
+    "start": "ng build && nodemon ../index.js -o",
+    "build": "ng build && nodemon ../index.js",
     "test": "ng test",
     "hacker-rank:start": "ng serve --host 0.0.0.0 --port 8000 --disable-host-check",
     "hacker-rank:test": "./hackerrank.sh",
