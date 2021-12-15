@@ -4,6 +4,9 @@
 .mt-20{
     margin-top:20px;
 }
+.mt-10{
+    margin-top:10px;
+}
 .p-20{
     padding-right:40px;
     padding-left:40px;
@@ -40,7 +43,11 @@
     padding:10px
 }
 
-.tab-headers>li :active{
+.tab-headers >li :active{
+border-bottom:2px solid red;
+}
+
+.tab-headers >a :active{
 border-bottom:2px solid red;
 }
 
@@ -49,5 +56,24 @@ border-bottom:2px solid red;
   }
 
  td :hover{
-     background-color: lightgrey;
+     background-color: grey;
  }
+
+ .grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+   // grid-gap: 55px;
+    //background-color: #2196F3;
+    //padding: 10px;
+  }
+  
+  .grid-container > div {
+   // background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    padding: 2px 0;
+  
+  }
+  .playlist-cards{
+    width: 100%;
+  }
+  

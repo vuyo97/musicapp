@@ -1,49 +1,15 @@
-<div class="horizontal-scroll">
-    <app-radio></app-radio>
+
+<div>
+<a href="/radio"><h3>Radio</h3></a>    
+<app-radio [isRadioPage]="isRadioPage"></app-radio>  
 </div>
 
-<h3>Recent Songs</h3>
-<div class="horizontal-scroll">
-    <div class="w3-card-4">
-        <img src="{{imageSrc}}" style="width:100%">
-        <div class="w3-container w3-center">
-            <p>Song Title</p>
-        </div>
-    </div>    
-    <div class="w3-card-4">
-        <img src="{{imageSrc}}" style="width:100%">
-        <div class="w3-container w3-center">
-            <p>Song Title</p>
-        </div>
-    </div>  
-    <div class="w3-card-4">
-        <img src="{{imageSrc}}" style="width:100%">
-        <div class="w3-container w3-center">
-            <p>Song Title</p>
-        </div>
-    </div>  
-    <div class="w3-card-4">
-        <img src="{{imageSrc}}" style="width:100%">
-        <div class="w3-container w3-center">
-            <p>Song Title</p>
-        </div>
-    </div>  
-    <div class="w3-card-4">
-        <img src="{{imageSrc}}" style="width:100%">
-        <div class="w3-container w3-center">
-            <p>Song Title</p>
-        </div>
-    </div>  
-    <div class="w3-card-4">
-        <img src="{{imageSrc}}" style="width:100%">
-        <div class="w3-container w3-center">
-            <p>Song Title</p>
-        </div>
-    </div>  
-
+<a routerLink="/charts/albums"><h3>Top Albums</h3></a>
+<div>
+<app-albums [isAlbumsPage]="isAlbumsPage"></app-albums>
 </div>
 
-<h3>Popular-Songs</h3>
+<h3>Popular Songs</h3>
 <div class="horizontal-scroll">
     <div class="w3-card-4">
         <img src="{{imageSrc}}" style="width:100%">

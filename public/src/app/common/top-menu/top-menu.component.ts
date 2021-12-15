@@ -10,9 +10,11 @@ import {ApiDataService} from '../../services/api-data.service';
 export class TopMenuComponent implements OnInit {
   
   constructor(private apiDataService:ApiDataService) { }
+  imageSrc='./user.png';
 
   ngOnInit(): void {
   }
+  
   
 
 }

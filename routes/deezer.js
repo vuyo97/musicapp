@@ -3,15 +3,29 @@ const router = express.Router();
 const axios = require('axios');
 
 //import controller functions
-const {getArtists,login,getArtist,search,initRadio,getArtistAlbums,getArtistTop,callback} = require('../controllers/deezer');
+const {callback,login,search,initRadio,
+    getArtist,getArtistAlbums,getArtistTop,getArtistRelated,getArtistPlaylists,
+    getArtistFans,
+    getArtistRadio,
+    chartTracks,
+    chartPodcasts,
+    chartAlbums,
+    chartArtists} = require('../controllers/deezer');
 
 
 
 router.route('/artist/:id').get(getArtist);
 router.route('/callback').get(callback);
 router.route('/artist/:id/albums').get(getArtistAlbums);
+router.route('/artist/:id/related').get(getArtistRelated);
+router.route('/artist/:id/playlists').get(getArtistPlaylists);
 router.route('/artist/:id/top').get(getArtistTop);
-router.route('/radio').get(initRadio);
+router.route('/artist/:id/fans').get(getArtistFans);
+router.route('/charts/tracks').get(chartTracks);
+router.route('/charts/podcasts').get(chartPodcasts);
+router.route('/charts/artists').get(chartArtists);
+router.route('/charts/albums').get(chartAlbums);
+router.route('/charts/radio').get(initRadio);
 router.route('/search/:id').get(search);
 router.route('/login').get(login);
 

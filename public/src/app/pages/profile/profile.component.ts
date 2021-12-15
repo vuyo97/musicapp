@@ -19,6 +19,11 @@ export class ProfileComponent implements OnInit {
   artist: any;
   tracks : any;
   albums : any;
+  related : any;
+  playlists : any;
+  radio : any;
+  fans : any;
+  
   imageSrc='../../../assets/images/user.jpg';
   constructor(private apiDataService: ApiDataService,private cd: ChangeDetectorRef,private router: Router,private readonly route: ActivatedRoute) { }
 
@@ -50,10 +55,27 @@ export class ProfileComponent implements OnInit {
         albums: this.apiDataService.getArtistAlbums(artist).subscribe((artistsAlbums)=>{
          this.albums = [artistsAlbums];
         //  console.log(' Albums : '+ JSON.stringify(this.albums));
-        })
+        }),
+        related: this.apiDataService.getArtistRelated(artist).subscribe((artistsRelated)=>{
+         this.related = [artistsRelated];
+        //  console.log(' Albums : '+ JSON.stringify(this.albums));
+        }),
+        playlists: this.apiDataService.getArtistPlaylists(artist).subscribe((artistsPlaylists)=>{
+         this.playlists = [artistsPlaylists];
+        //  console.log(' Albums : '+ JSON.stringify(this.albums));
+        }),
+        radio: this.apiDataService.getArtistPlaylists(artist).subscribe((artistsRadio)=>{
+         this.radio = [artistsRadio];
+        //  console.log(' Albums : '+ JSON.stringify(this.albums));
+         })//,
+        // fans: this.apiDataService.getArtistPlaylists(artist).subscribe((artistsFans)=>{
+        //  this.fans = [artistsFans];
+        // //  console.log(' Albums : '+ JSON.stringify(this.albums));
+        // })
+      }).subscribe(data => {
+      try{console.log(data)}catch(err){
+        console.log(err);
       }
-    ).subscribe(data => {
-      console.log(data)
     });
 
     }

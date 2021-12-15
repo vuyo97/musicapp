@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 //import {DZ} from '../../../assets/player/dz.js';
-const DZ = require('../../../assets/player/dz.js');
+// const DZ = require('../../../assets/player/dz.js');
+// const process= require('dotenv').config();
 
 @Component({
   selector: 'app-player-bar',
@@ -30,7 +31,7 @@ export class PlayerBarComponent implements OnInit {
 	// 	if (response.authResponse) {
 		 // toggle.style.display = "block"
 		//  login.style.display  = "none"            
-		  DZ.player.play()
+		//  DZ.player.play()
 	// 	} else {
 	// 	  // login failed
 	// 	}

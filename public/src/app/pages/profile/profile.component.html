@@ -20,10 +20,11 @@
 
 <div class="w3-container w3-col m12  mt-20 mb-5">
    
-       <app-tabs>
+  <app-tabs>
+    <!--Discography-->
         <my-tab class="tab-headers" [tabTitle]="'Discography'">
           <div class="w3-row">
-        <div class="w3-container artist-tab  w3-animate-zoom w3-col m7 l9 " id="discography">
+        <div class="w3-container artist-tab  w3-animate-opacity w3-col m7 l9 " id="discography">
            <a href=""><h3>Top Tracks</h3></a>
           <div class="w3-card-4 br w3-col m12 card-container">
             <table class="table">
@@ -39,8 +40,8 @@
                 </tr>
               </tbody>
             </table>
-            <div class="w3-container">
-              <p class="title"><input type="button" routerLink="#tracks" class="w3-btn w3-white w3-text-cyan w3-border w3-border-cyan w3-round-xxlarge" value="see more tracks"></p>
+            <div class="w3-container" >
+              <a><p class="title"><input type="button" class="w3-btn w3-white w3-text-cyan w3-border w3-border-cyan w3-round-xxlarge" value="see more tracks"></p></a>
             </div>
           </div>
         
@@ -49,52 +50,28 @@
      
         <div class="w3-col w3-container m5 l3">  
          <a href=""> <h4>Playlists</h4></a>
-          <div class="br w3-col m12 card-container">
-           <li class="list-items">
+          <div class="w3-col m12 card-container">
+           <li class="list-items" *ngFor="let playlist of playlists[0].data.data | slice:0:3 let i=index">
              <div class="w3-container w3-row">
               <div class="w3-col m4">
-                 <img src="{{imageSrc}}" class="w3-circle" style="width:60%"/>
+                <a href="{{playlist.link}}"><img src="{{playlist.picture}}" class="w3-circle" style="width: 80%;padding-top: 5px;"/></a>
+                <div class="w3-display-middle w3-display-hover w3-medium">
+                  <p class="w3-text-black"><img src="./assets/images/play2.png" class="controls"></p>
+                </div>
               </div>
               <div class="w3-col m8">
-                <p>SA Hip Hop 
-                  <span> <p>50 tracks - 7000 fans</p></span>
+                <p>{{playlist.title}}
+                 <small> <span><p>by {{playlist.user.name}}</p></span></small>
                 </p>
                
               </div>
              </div>
            </li>
-
-           <li class="list-items">
-            <div class="w3-container w3-row">
-             <div class="w3-col m4">
-                <img src="{{imageSrc}}" class="w3-circle" style="width:60%"/>
-             </div>
-             <div class="w3-col m8">
-               <p>SA Hip Hop 
-                 <span> <p>50 tracks - 7000 fans</p></span>
-               </p>
-              
-             </div>
-            </div>
-          </li>
-
-          <li class="list-items">
-            <div class="w3-container w3-row">
-             <div class="w3-col m4">
-                <img src="{{imageSrc}}" class="w3-circle" style="width:60%"/>
-             </div>
-             <div class="w3-col m8">
-               <p>SA Hip Hop 
-                 <span> <p>50 tracks - 7000 fans</p></span>
-               </p>
-              
-             </div>
-            </div>
-          </li>
           </div>
         </div>
+
           <!-- Albums -->
-          <div class="w3-container w3-col m12 l12 w3-row mt-10">
+          <div class="w3-container w3-col m12 l12 w3-row mt-10" style="border-top:1px solid lightcyan">
             <a href=""><h3>Albums</h3></a>
             <div class="w3-col m2 w3-center w3-hover-opacity mt-2 album-card" *ngFor="let album of albums[0].data.data | slice:0:5 let i=index" >
               <a> <img src="{{album.cover_medium}}" class="br-5" style="width:100%"/></a>
@@ -102,17 +79,30 @@
                 <span><small> <h4 class="">{{album.title}}</h4>
                 <p class="title">Released on {{album.release_date}}</p>
                 </small></span>
-                
-            
-                </div>
+             </div>
             </div>
+          </div>
+
+          <!-- Related -->
+          <div class="w3-container w3-col m12 l12 w3-row mt-10" style="border-top:1px solid lightcyan">
+            <a href=""><h3>Related Artists</h3></a>
+            <div class="w3-col m2 w3-center w3-hover-opacity mr-10" *ngFor="let rartist of related[0].data.data  | slice:0:12 let b=index">
+              <a routerLink="/profile/{{rartist.id}}"> <img src="{{rartist.picture_medium}}" class="w3-circle" style="width:90%"/></a>
+              <div class="w3-display-middle w3-display-hover w3-large">
+               <p class="">{{rartist.name}}</p>
+              </div>
+              <div class="w3-container">
+              <h6 >{{rartist.name}}</h6>
+              <p class="title">{{rartist.nb_fan}} fans</p>
+              </div>
+              </div>
           </div>
           </div>
         </my-tab>
 
     <!--top tracks-->
-        <my-tab tab-headers [tabTitle]="'Tracks'" id="tracks" routerLink='profile/tracks'>
-          <div class="w3-container artist-tab w3-animate-zoom w3-col m12 l12 " id="tracks">
+        <my-tab tab-headers [tabTitle]="'Tracks'" id="tracks">
+          <div class="w3-container artist-tab w3-animate-opacity w3-col m12 l12 " id="tracks">
             <div class="w3-col m12 card-container">
               <table class="table">
                 <tbody>
@@ -142,41 +132,49 @@
         </my-tab>
 
     <!--playlist-->
-        <my-tab tab-headers [tabTitle]="'Playlists'" id="Playlists" routerLink='/profile/playlists'>
-          <div class="w3-container artist-tab w3-animate-zoom w3-col m12 l12 " id="Playlists">
-            <div class="w3-col m12 card-container">
-              <!-- <table class="table">
-                <tbody>
-                  <tr>
-                    <td>#</td>
-                    <td>Title</td>
-                    <td></td>
-                    <td></td>
-                    <td>Duration</td>
-                  </tr>
-                    <tr  *ngFor="let track of tracks[0].data.data  | slice:0:30 let b=index">
-                    <td >{{b + 1}}</td>
-                    <td>{{track.title_short}}</td>
-                    <td><a href="{{track.link}}">Play</a></td>
-                    <td><span *ngIf="track.explicit_lyrics" class="w3-badge w3-round w3-text-white w3-grey w3-border w3-tiny" style="padding:1px 5px 1px 5px">E</span>
-                     <span  *ngIf="!track.explicit_lyrics" style="padding:1px 5px 1px 5px"> </span></td>
-                    <td>{{track.duration | duration}}</td>
-                  </tr>
-                </tbody>
-              </table> -->
-              <div class="w3-container">
-                <!-- <p class="title"><input type="button" class="w3-btn w3-white w3-text-cyan w3-border w3-border-cyan w3-round-xxlarge" value="see more tracks"></p> -->
+        <my-tab tab-headers [tabTitle]="'Playlists'" id="Playlists" >
+          <div class="w3-container artist-tab w3-animate-opacity w3-col m12 l12" id="Playlists">
+            <div class="w3-col m12 grid-container">
+              <div class="w3-center w3-hover-opacity playlist-cards br-5" *ngFor="let playlist of playlists[0].data.data | slice:0:30 let a=index" >
+                <a href="{{playlist.link}}" target="_blank"> <img src="{{playlist.picture_medium}}"/>
+                  <div class="w3-display-middle w3-display-hover w3-medium">
+                    <p class="w3-text-black">{{playlist.title}}</p>
+                  </div>
+                </a>
+                  <div class="w3-container">
+                  <span><small> <h4 class="">{{playlist.title}}</h4>
+                  <p class="title">Released on <strong>{{playlist.creation_date}}</strong></p>
+                  </small></span>
+                  
+              
+                  </div>
               </div>
             </div>
           
           </div>
         </my-tab>
 
-        <!--Albums-->
+    <!--Albums-->
         <my-tab tab-headers [tabTitle]="'Albums'" id="Albums">
-          <div class="w3-container artist-tab w3-animate-zoom w3-col m12 l12 " id="Albums">
-            <div class="w3-col m12 card-container">
-             
+          <div class="w3-container w3-animate-opacity w3-col m12 l12 " id="Albums">
+            <div class="w3-col m12 grid-container">
+              <div class="w3-center w3-hover-opacity playlist-cards" *ngFor="let album of albums[0].data.data | slice:0:30 let a=index" >
+                <a href="{{album.link}}" target="_blank"> <img src="{{album.cover_medium}}" class="br-5"/>
+                  <div class="w3-display-middle w3-display-hover w3-medium">
+                    <p class="w3-text-black">{{album.title}}</p>
+                  </div>
+                </a>
+                  <div class="w3-container">
+                  <span><small> 
+                    <h4 class="">{{album.title}}</h4>
+                  <p class="title">Released on <strong>{{album.release_date}}</strong>
+                    &nbsp;<span *ngIf="album.explicit_lyrics" class="w3-badge w3-round w3-text-white w3-grey w3-border w3-tiny" style="padding:1px 5px 1px 5px">E</span>
+                    &nbsp;<span *ngIf="!album.explicit_lyrics"> </span></p>
+                  </small></span>
+                  
+              
+                  </div>
+              </div>
               <div class="w3-container">
                 <!-- <p class="title"><input type="button" class="w3-btn w3-white w3-text-cyan w3-border w3-border-cyan w3-round-xxlarge" value="see more tracks"></p> -->
               </div>
@@ -185,45 +183,81 @@
           </div>
         </my-tab>
 
-         <!--Radio-->
-        <my-tab tab-headers [tabTitle]="'Radio'" id="Radio">
-          <div class="w3-container artist-tab w3-animate-zoom w3-col m12 l12 " id="Radio">
-            <div class="w3-col m12 card-container">
-             
-              <div class="w3-container">
-                <!-- <p class="title"><input type="button" class="w3-btn w3-white w3-text-cyan w3-border w3-border-cyan w3-round-xxlarge" value="see more tracks"></p> -->
-              </div>
-            </div>
-          
-          </div>
-        </my-tab>
 
-        <!--Related-->
+    <!--Related-->
         <my-tab tab-headers [tabTitle]="'Related'" id="Related">
-          <div class="w3-container artist-tab w3-animate-zoom w3-col m12 l12 " id="Related">
+          <div class="w3-container artist-tab w3-animate-opacity w3-col m12 l12 " id="Related">
             <div class="w3-col m12 card-container">
-             
+              <div  class="w3-col m12 w3-row ">
+                <!-- <div class="w3-display-container  col-md-12"> -->
+                   <div class="w3-col m2 w3-center w3-hover-opacity mr-10" *ngFor="let rartist of related[0].data.data  | slice:0:30 let b=index">
+                    <a routerLink="/profile/{{rartist.id}}"> <img src="{{rartist.picture_medium}}" class="w3-circle" style="width:90%"/></a>
+                    <div class="w3-display-middle w3-display-hover w3-large">
+                     <p class="">{{rartist.name}}</p>
+                    </div>
+                    <div class="w3-container">
+                    <h6 >{{rartist.name}}</h6>
+                    <p class="title">{{rartist.nb_fan}} fans</p>
+                    </div>
+                    </div>
+                 
+                <!-- </div> -->
+                </div>
               <div class="w3-container">
                 <!-- <p class="title"><input type="button" class="w3-btn w3-white w3-text-cyan w3-border w3-border-cyan w3-round-xxlarge" value="see more tracks"></p> -->
               </div>
             </div>
           
           </div>
+
         </my-tab>
 
-        <!--Fans-->
-        <my-tab tab-headers [tabTitle]="'Fans'" id="fans">
-          <div class="w3-container artist-tab w3-animate-zoom w3-col m12 l12 " id="fans">
+    <!--Radio--
+        <my-tab tab-headers [tabTitle]="'Radio'" id="Radio">
+          <div class="w3-container artist-tab w3-animate-opacity w3-col m12 l12 " id="Radio">
             <div class="w3-col m12 card-container">
-             
+              <div  class="w3-col m12 w3-row ">
+                <-- <div class="w3-display-container  col-md-12"> --
+                   <div class="w3-col m2 w3-center w3-hover-opacity mr-10" *ngFor="let rad of radio[0].data.data  | slice:0:30 let b=index">
+                    <a > <img src="{{rad.md5_image}}" class="w3-circle" style="width:90%"/></a>
+                    <div class="w3-display-middle w3-display-hover w3-large">
+                     <p class="">{{rad.title_short}} preview </p>
+                    </div>
+                    <div class="w3-container">
+                    <h6 >{{rad.title_short}}</h6>
+                    <p class="title">{{rad.duration |duration}} minutes</p>
+                  
+                    </div>
+                    </div>
+                 
+                <-- </div> --
+                </div>
               <div class="w3-container">
-                <!-- <p class="title"><input type="button" class="w3-btn w3-white w3-text-cyan w3-border w3-border-cyan w3-round-xxlarge" value="see more tracks"></p> -->
+                <-- <p class="title"><input type="button" class="w3-btn w3-white w3-text-cyan w3-border w3-border-cyan w3-round-xxlarge" value="see more tracks"></p> --
               </div>
             </div>
           
           </div>
-        </my-tab>
-      </app-tabs>
+        </my-tab>-->
+
+    <!--Fans--
+        <my-tab tab-headers [tabTitle]="'Fans'" id="fans">
+          <div class="w3-container artist-tab w3-animate-opacity w3-col m12 l12 " id="fans">
+            <div class="w3-col m12 card-container">
+              <-- <div class="w3-col m2 w3-center w3-hover-opacity mt-2 album-card" *ngFor="let fan of fans[0].data.data | slice:0:30 let a=index" >
+                <a> <img src="{{fan.picture_medium}}" class="br-5" style="width:100%"/></a>
+                  <div class="w3-container">
+                  <span><small> <h4 class="">{{fan.title}}</h4>
+                  <p class="title">Released on <strong>{{fan.release_date}}</strong></p>
+                  </small></span>
+                  </div>
+              </div> --
+        
+            </div>
+          
+          </div>
+        </my-tab>-->
+  </app-tabs>
 </div>
 
 </div>

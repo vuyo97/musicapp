@@ -1,25 +1,20 @@
-<div class="w3-container mt-3 ">
-   <a href="/radio"><h3>Radio</h3></a>
-    <div class="w3-display-container w3-hover-opacity w3-col m2 mr-10" *ngFor="let rad of radio" >
-      <img src="{{rad.picture}}" alt="Avatar" style="width:100%" class="w3-circle">
-      <div class="w3-display-middle w3-display-hover w3-large">
-        <p class="w3-text-white">{{rad.data.title}}</p>
-      </div>
+<div [hidden]="isRadioPage" class="w3-container w3-animate-opacity horizontal-scroll">
+    <div class="w3-display-container w3-hover-opacity w3-col" *ngFor="let rad of radio[0].data.data | slice:0:10 let a=index" >
+    <img src="{{rad.picture}}" alt="radio-cover" style="width:100%" class="w3-circle">
+    <div class="w3-display-middle w3-display-hover w3-large">
+      <p class="w3-text-white">{{rad.title}}</p>
     </div>
-    
-  
-    <div class="w3-display-container w3-hover-opacity w3-col m2 mr-10" >
-      <img src="{{imageSrc}}" alt="Avatar" style="width:100%" class="w3-circle">
-      <div class="w3-display-middle  w3-large">
-        <p class="">John Doe</p>
-      </div>
+    <h6 class="w3-text-grey w3-center" style="font-weight:500">{{rad.title}}</h6>
     </div>
-    
-    <div class="w3-display-container w3-hover-opacity w3-col m2 mr-10" >
-      <img src="{{imageSrc}}" alt="Avatar" style="width:100%" class="w3-circle">
-      <div class="w3-display-middle w3-display-hover w3-large">
-        <p class="">John Doe</p>
-      </div>
+</div>
+
+<div *ngIf="isRadioPage" class="w3-container">
+  <div class="w3-display-container w3-hover-opacity w3-animate-opacity w3-col m2" *ngFor="let rad of radio[0].data.data | slice:0:30 let r=index" >
+    <img src="{{rad.picture_medium}}" alt="Avatar" style="width:100%" class="w3-circle">
+    <div class="w3-display-middle w3-display-hover w3-large">
+    <p class="w3-text-white">{{rad.title}}</p>
     </div>
+    <h6 class="w3-text-gray w3-center" style="font-weight:500">{{rad.title}}</h6>
+  </div>
 </div>
 

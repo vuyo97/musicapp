@@ -21,6 +21,9 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { durationPipe } from './pages/profile/duration.pipe';
 import { TabsComponent } from './pages/profile/tabs/tabs.component';
 import { TabComponent } from './pages/profile/tabs/tab.component';
+import { AlbumsComponent } from './pages/albums/albums.component';
+import { TracksComponent } from './pages/tracks/tracks.component';
+import { SearchComponent } from './pages/search/search.component';
 // import { FontAwesomeModule, FaIconLibrary ,FaConfig } from '@fortawesome/angular-fontawesome';
 // import { fas } from '@fortawesome/free-solid-svg-icons';
 
@@ -40,7 +43,10 @@ import { TabComponent } from './pages/profile/tabs/tab.component';
     ProfileComponent,
     durationPipe,
     TabsComponent,
-    TabComponent
+    TabComponent,
+    AlbumsComponent,
+    TracksComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

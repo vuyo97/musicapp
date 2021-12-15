@@ -22,8 +22,9 @@ export class ApiDataService {
       this.route.queryParamMap.subscribe(queryParams => {
         console.log(queryParams);
            this.searchName = queryParams.get("artist");
+           console.log('encoded : '+this.searchName)
            this.searchName = decodeURIComponent(this.searchName);
-           console.log(this.searchName)
+           console.log('decoced : '+this.searchName)
       });
      
       return this.http.get(`/api/deezer/artist/${this.searchName}`).map(artist => {
@@ -59,7 +60,6 @@ export class ApiDataService {
       });
     }
 
-    
     getArtistTracks(id:any)
     {
       this.route.paramMap.subscribe(params => {
@@ -74,6 +74,62 @@ export class ApiDataService {
       });
     }
 
+    getArtistPlaylists(id:any)
+    {
+      this.route.paramMap.subscribe(params => {
+        console.log(params);
+           this.searchid = id;
+           console.log(this.searchid)
+           //this.searchid = decodeURIComponent(this.searchid);
+      });
+     
+      return this.http.get(`/api/deezer/artist/${this.searchid}/playlists`).map(playlists => {
+        return playlists;
+      });
+    }
+
+    getArtistRelated(id:any)
+    {
+      this.route.paramMap.subscribe(params => {
+        console.log(params);
+           this.searchid = id;
+           console.log(this.searchid)
+           //this.searchid = decodeURIComponent(this.searchid);
+      });
+     
+      return this.http.get(`/api/deezer/artist/${this.searchid}/related`).map(related => {
+        return related;
+      });
+    }
+
+    getArtistRadio(id:any)
+    {
+      this.route.paramMap.subscribe(params => {
+        console.log(params);
+           this.searchid = id;
+           console.log(this.searchid)
+           //this.searchid = decodeURIComponent(this.searchid);
+      });
+     
+      return this.http.get(`/api/deezer/artist/${this.searchid}/radio`).map(radio => {
+        return radio;
+      });
+    }
+
+    // getArtistFans(id:any)
+    // {
+    //   this.route.paramMap.subscribe(params => {
+    //     console.log(params);
+    //        this.searchid = id;
+    //        console.log(this.searchid)
+    //        //this.searchid = decodeURIComponent(this.searchid);
+    //   });
+     
+    //   return this.http.get(`/api/deezer/artist/${this.searchid}/fans`).map(fans => {
+    //     return fans;
+    //   });
+    // }
+
   //Performs API search
     Search(query:any){
       console.log();
@@ -84,8 +140,39 @@ export class ApiDataService {
     }
 
     initRadio(){
-      return this.http.get('/api/radio/').map(radio => {
+      return this.http.get('/api/deezer/charts/radio').map(radio => {
         return radio;
+       
+      });
+    }
+    getChartAlbums(){
+      return this.http.get('/api/deezer/charts/albums').map(albums => {
+      return albums;
+       
+      });
+    }
+    getChartArtists(){
+      return this.http.get('/api/deezer/charts/artists').map(artists => {
+        return artists;
+       
+      });
+    }
+    getChartPodcasts(){
+      return this.http.get('/api/deezer/charts/podcasts').map(podcasts => {
+        return podcasts;
+       
+      });
+    }
+    getChartTracks(){
+      return this.http.get('/api/deezer/charts/tracks').map(tracks => {
+        return tracks;
+       
+      });
+    }
+
+    login(){
+      return this.http.get('/api/deezer/login').map(response => {
+        return response;
        
       });
 

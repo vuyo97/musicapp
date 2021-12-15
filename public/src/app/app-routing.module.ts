@@ -7,15 +7,23 @@ import { LoginComponent } from './common/login/login.component';
 import { PodcastsComponent } from './pages/podcasts/podcasts.component';
 import { RadioComponent } from './pages/radio/radio.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { SearchComponent } from './pages/search/search.component';
+import { AlbumsComponent } from './pages/albums/albums.component';
+import { TracksComponent } from './pages/tracks/tracks.component';
 
 const routes: Routes = [
   {path:'' , component: HomeComponent},
   {path:'browse' , component: BrowseComponent},
   {path:'artists' , component: ArtistsComponent},
   {path:'podcasts' , component: PodcastsComponent},
-  {path:'radio' , component: RadioComponent},
   {path:'login' , component: LoginComponent},
-  {path:'profile/:id' , component: ProfileComponent}
+  {path:'profile/:id' , component: ProfileComponent},
+  {path:'charts/radio' , component: RadioComponent},
+  {path:'charts/tracks' , component: TracksComponent},
+  {path:'charts/albums' , component: AlbumsComponent},
+  {path:'charts/podcasts' , component: PodcastsComponent},
+  {path:'charts/artists' , component: ArtistsComponent},
+  {path:'charts/search' , component: SearchComponent}
 ];
 
 @NgModule({
