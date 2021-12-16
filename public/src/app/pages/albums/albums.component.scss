@@ -1,7 +1,7 @@
 .grid-container {
     display: grid;
-    grid-template-columns: auto auto auto auto;
-    grid-gap: 55px;
+    grid-template-columns: 291.8px 291.8px 291.8px 291.8px 291.8px ;
+    grid-gap: 0px;
     //background-color: #2196F3;
     //padding: 10px;
 }
@@ -11,6 +11,17 @@
     text-align: left;
     padding: 2px 0;
   
+}
+
+.tooltip{
+    width: 250px;
+    height: auto;
+    z-index: 999;
+    padding: 15px;
+    opacity: 0.8;
+    border-radius: 20px;
+    font-size:15px;
+    position: inherit;
 }
 
 .album-cards{

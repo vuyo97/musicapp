@@ -193,6 +193,19 @@ res.status(500).json({msg: err.message})
 
 });
 
+// const chartPodcastChannel = asyncWrapper(async (req,res)=>{
+// const result = await axios.get(`https://api.deezer.com/chart/0/podcasts`).then(podcasts => {
+
+// const {data}=podcasts;
+//  res.status(200).json({data});
+  
+// }).catch(err =>{
+// res.status(500).json({msg: err.message})
+// });
+
+
+// });
+
 const chartTracks = asyncWrapper(async (req,res)=>{
 const result = await axios.get(`https://api.deezer.com/chart/0/tracks`).then(tracks => {
 

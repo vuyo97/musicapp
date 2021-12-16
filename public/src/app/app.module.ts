@@ -4,6 +4,7 @@ import {HttpClientModule} from '@angular/common/http'
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TopMenuComponent } from './common/top-menu/top-menu.component';
@@ -24,6 +25,10 @@ import { TabComponent } from './pages/profile/tabs/tab.component';
 import { AlbumsComponent } from './pages/albums/albums.component';
 import { TracksComponent } from './pages/tracks/tracks.component';
 import { SearchComponent } from './pages/search/search.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { ChannelComponent } from './pages/podcasts/channel/channel.component';
+
+
 // import { FontAwesomeModule, FaIconLibrary ,FaConfig } from '@fortawesome/angular-fontawesome';
 // import { fas } from '@fortawesome/free-solid-svg-icons';
 
@@ -46,14 +51,16 @@ import { SearchComponent } from './pages/search/search.component';
     TabComponent,
     AlbumsComponent,
     TracksComponent,
-    SearchComponent
+    SearchComponent,
+    ChannelComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbModule
    // FontAwesomeModule
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],

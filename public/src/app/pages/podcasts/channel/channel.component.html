@@ -1,0 +1,47 @@
+<div class="w3-container mt-3 ">
+    <div class="w3-col m12 ">
+        <div class="w3-container w3-row" *ngFor="let chan of channel">
+            <div class="w3-col m2 l3 w3-center w3-hover-opacity" >
+                <img src="{{chan.picture_medium}}" class="w3-circle" style="width:80%"/>
+            </div>
+            <div class="w3-col m8 l9">
+                <h2>{{chan.title}}</h2>
+                <p class="title">{{chan.fans}} fans</p>
+                <a href="{{chan.link}}" target="_blank" class="title"><input type="button" class="w3-btn w3-cyan w3-text-white w3-round-xxlarge" value="Listen"></a>
+                &nbsp;
+                <a href="{{chan.share}}" target="_blank" class="title"><input type="button" class="w3-btn w3-cyan w3-text-white w3-round-xxlarge" value="Share"></a>
+                
+             </div>
+             <div class="w3-container mt-5">
+              <p class="title w3-text-grey">{{chan.description}}</p>
+             </div>
+        </div>
+
+        <!--list--
+        <div class="w3-container w3-animate-opacity w3-col m12 l12 ">
+            <div class="w3-col m12 card-container">
+              <table class="table">
+                <tbody>
+                  <tr>
+                    <td>#</td>
+                    <td>Title</td>
+                    <td></td>
+                    <td></td>
+                    <td>Duration</td>
+                  </tr>
+                    <tr  *ngFor="let episode of channel[0].data.data  | slice:0:30 let b=index">
+                    <td >{{b + 1}}</td>
+                    <td>{{episode.title_short}}</td>
+                    <td><a href="{{episode.link}}">listen</a></td>
+                    <td><span *ngIf="episode.explicit_lyrics" class="w3-badge w3-round w3-text-white w3-grey w3-border w3-tiny" style="padding:1px 5px 1px 5px">E</span>
+                     <span  *ngIf="!episode.explicit_lyrics" style="padding:1px 5px 1px 5px"> </span></td>
+                    <td>{{episode.duration | duration}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          
+          </div>-->
+    
+    </div>
+</div>

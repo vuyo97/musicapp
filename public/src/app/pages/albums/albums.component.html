@@ -1,11 +1,17 @@
 <h3 *ngIf="isAlbumsPage" class="w3-text-grey"> Top Albums</h3>
 <div [hidden]="isAlbumsPage" class="w3-container">
 <div #albumRef class="w3-col m12 l12 w3-row mt-10 horizontal-scroll w3-animate-opacity" style="border-top:1px solid lightcyan"> 
-    <div class="w3-center w3-hover-opacity album-cards" *ngFor="let album of albums[0].data.data | slice:0:20 let i=index" >
-        <a href="{{album.link}}" target="_blank"> <img src="{{album.cover_medium}}" class="br-5"/>
-        <div class="w3-display-middle w3-display-hover w3-large">
-            <p class="w3-text-grey">{{album.title}}</p>
-        </div>
+    <div class="w3-center  album-cards" *ngFor="let album of albums[0].data.data | slice:0:20 let i=index" >
+        <a href="{{album.link}}" target="_blank"> <img src="{{album.cover_medium}}" class="br-5 w3-hover-opacity"/>
+          <div class="w3-display-middle w3-display-hover w3-large">
+            <small>
+            <div class="w3-text-white w3-black tooltip"
+                 [ngbTooltip]="tipContent" triggers="manual" #t4="ngbTooltip" triggers="hover focus" 
+                 [autoClose]="'outside'" (mouseenter)="toggleWithDescription(t4,'{{album.artist.name}}')">  
+                 {{album.artist.name}}
+            </div>
+            </small>
+            </div>
         </a>
         <div class="w3-container">
         <span><small> <h5 class="w3-text-grey" style="font-weight:500">{{album.title}}</h5>
@@ -17,11 +23,17 @@
 
 <div *ngIf="isAlbumsPage" class="w3-container w3-animate-opacity w3-col m12 l12" >
   <div class="w3-col m12 grid-container">
-    <div class="w3-center w3-hover-opacity album-cards w3-animate-opacity" *ngFor="let album of albums[0].data.data | slice:0:30 let a=index" >
-      <a href="/profile/{{album.artist.id}}" target="_blank"> <img src="{{album.cover_medium}}" class="br-5"/>
-      <div class="w3-display-middle w3-display-hover w3-large">
-      <h5 class="w3-text-white">{{album.title}}</h5>
-      </div>
+    <div class="w3-center album-cards w3-animate-opacity" *ngFor="let album of albums[0].data.data | slice:0:30 let a=index" >
+      <a routerLink="/profile/{{album.artist.id}}"><img src="{{album.cover_medium}}" class="br-5 w3-hover-opacity"/>
+        <div class="w3-display-middle w3-display-hover w3-large">
+          <small>
+          <div class="w3-text-white w3-black tooltip"
+               [ngbTooltip]="tipContent" triggers="manual" #t3="ngbTooltip" triggers="hover focus" 
+               [autoClose]="'outside'" (mouseenter)="toggleWithDescription(t3,'{{album.artist.name}}')"> 
+               {{album.artist.name}} 
+          </div>
+          </small>
+          </div>
       </a>
       <div class="w3-container">
       <span><small> 

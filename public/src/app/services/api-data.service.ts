@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http'
-import { ActivatedRoute, Router } from '@angular/router'
+import { ActivatedRoute, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router'
 
 import 'rxjs-compat/add/operator/map'
 import '../common/search-bar/search-bar.component'
@@ -145,12 +145,31 @@ export class ApiDataService {
        
       });
     }
+
+    getPodcasts(){
+      return this.http.get('/api/deezer/charts/podcasts').map(podcasts => {
+        return podcasts;
+       
+      });
+    }
+    
+    // getPodcastChannel(id:any){
+    //   return this.http.get( `/api/deezer/podcast/channel/${this.id}`).map(channel => {
+    //     return channel;
+       
+    //   });
+    // }
+    
+    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+      return this.channelData;
+  }
     getChartAlbums(){
       return this.http.get('/api/deezer/charts/albums').map(albums => {
       return albums;
        
       });
     }
+    
     getChartArtists(){
       return this.http.get('/api/deezer/charts/artists').map(artists => {
         return artists;

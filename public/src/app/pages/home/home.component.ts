@@ -14,6 +14,7 @@ export class HomeComponent implements OnInit {
   constructor(private router: Router,private readonly route: ActivatedRoute) { }
   isAlbumsPage = false;
   isRadioPage = false;
+  isPodPage = false;
   ngOnInit(): void {
   }
 

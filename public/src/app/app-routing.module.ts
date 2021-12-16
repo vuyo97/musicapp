@@ -10,6 +10,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { SearchComponent } from './pages/search/search.component';
 import { AlbumsComponent } from './pages/albums/albums.component';
 import { TracksComponent } from './pages/tracks/tracks.component';
+import { ChannelComponent } from './pages/podcasts/channel/channel.component';
 
 const routes: Routes = [
   {path:'' , component: HomeComponent},
@@ -22,8 +23,9 @@ const routes: Routes = [
   {path:'charts/tracks' , component: TracksComponent},
   {path:'charts/albums' , component: AlbumsComponent},
   {path:'charts/podcasts' , component: PodcastsComponent},
+  {path:'podcast/channel' , component: ChannelComponent},
   {path:'charts/artists' , component: ArtistsComponent},
-  {path:'charts/search' , component: SearchComponent}
+  {path:'/search' , component: SearchComponent}
 ];
 
 @NgModule({

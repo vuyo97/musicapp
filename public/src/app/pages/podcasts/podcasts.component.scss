@@ -1,0 +1,78 @@
+.mr-10{
+    margin:10px;
+}
+
+a {
+text-decoration: none;
+font-weight:800;
+color:grey;
+}
+
+a :hover{
+color:lightseagreen;
+}
+
+.pod-cards{
+    width: 100%;
+    padding: 5px;
+  }
+
+.br-5{
+    border-radius: 5px;
+}
+
+.horizontal-scroll{
+    display: inline-flex;
+    grid-gap: 10px;
+    /* grid-template-rows: 167px; */
+    grid-auto-flow: column;
+    overflow-x: scroll;
+}
+
+.tooltip{
+    width: 250px;
+    height: auto;
+    z-index: 999;
+    padding: 15px;
+    opacity: 0.8;
+    border-radius: 20px;
+    font-size:15px;
+    position: inherit
+}
+
+.w3-card-4{
+    display:inline-block;
+    width:250px;
+    margin:10px;
+}
+
+.horintal-scroll > div,
+.pod-cards {
+    padding-top: 15px;
+    /* display: flex; */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   
+}
+
+.horintal-scroll:before,
+.horintal-scroll:after {
+  content: '';
+  width: 10px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns:300px 300px 300px 300px 300px;
+    grid-gap: 0px;
+    //background-color: #2196F3;
+    //padding: 10px;
+}
+  
+.grid-container > div {
+   // background-color: rgba(255, 255, 255, 0.8);
+    text-align: left;
+    padding: 2px 0;
+  
+}
