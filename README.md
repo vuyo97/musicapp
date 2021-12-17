@@ -7,7 +7,7 @@ To run project
 
 2. cd to directory then run npm install
 
-3. cd into public and run npm start/run build
+3. cd into public and run npm run build
 
 4. Open browser to allocated port on localhost
 
