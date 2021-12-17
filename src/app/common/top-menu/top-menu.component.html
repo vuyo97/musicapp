@@ -1,0 +1,31 @@
+<div class="w3-top">
+<div class="w3-bar w3-light-grey top-menu">
+    
+    <div class="w3-bar-item logo">Deezer</div>
+    <div class="nav-container">
+    <a routerLink="/" class="w3-bar-item " [ngClass]="{'active': true}">Home</a>
+    <a routerLink="/browse"  class="w3-bar-item">Browse</a>
+    <a routerLink="/charts/albums" class="w3-bar-item">Albums</a>
+    <a routerLink="/podcasts" class="w3-bar-item">Podcasts</a>
+    <a routerLink="/charts/radio" class="w3-bar-item">Radio</a>
+
+  <div class="differ active-red active-red-2 w3-col m2 w3-center" id="search-container">
+      <app-search-bar></app-search-bar>
+  </div>
+
+  <div class="differ">
+    <a href="" class="w3-bar-item"> 
+      <div class="w3-col m6">
+      <img src="../../../assets/images/user.png" class="w3-circle user" />
+     </div>
+    </a>
+    <a routerLink="/login" class="w3-bar-item  w3-right">Login</a>
+    
+  </div> 
+  
+</div>
+</div>
+
+
+
+</div>

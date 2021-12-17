@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<testsuite name="Chrome 96.0.4664.110 (Windows 7)" package="unit" timestamp="2021-12-14T10:30:52" id="0" hostname="Lap-pta3-it01" tests="0" errors="1" failures="0" time="0">
+  <properties>
+    <property name="browser.fullName" value="Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36"/>
+  </properties>
+  <system-out>
+    <![CDATA[Chrome 96.0.4664.110 (Windows 7) ERROR
+  Disconnected Client disconnected from CONNECTED state (transport close)
+,Chrome 96.0.4664.110 (Windows 7) ERROR
+  An error was thrown in afterAll
+  Uncaught TypeError: (0 , tslib__WEBPACK_IMPORTED_MODULE_6__.__decorate) is not a function
+  TypeError: (0 , tslib__WEBPACK_IMPORTED_MODULE_6__.__decorate) is not a function
+      at Module.2301 (http://localhost:9876/_karma_webpack_/webpack:/src/app/common/search-bar/search-bar.component.ts:11:32)
+      at __webpack_require__ (http://localhost:9876/_karma_webpack_/webpack:/webpack/bootstrap:19:1)
+      at Module.7828 (http://localhost:9876/_karma_webpack_/main.js:1618:97)
+      at __webpack_require__ (http://localhost:9876/_karma_webpack_/webpack:/webpack/bootstrap:19:1)
+      at Module.721 (http://localhost:9876/_karma_webpack_/main.js:68:84)
+      at __webpack_require__ (http://localhost:9876/_karma_webpack_/webpack:/webpack/bootstrap:19:1)
+      at Module.2859 (http://localhost:9876/_karma_webpack_/main.js:15:72)
+      at __webpack_require__ (http://localhost:9876/_karma_webpack_/webpack:/webpack/bootstrap:19:1)
+      at webpackContext (http://localhost:9876/_karma_webpack_/webpack:/src|sync|/.spec/.ts$:43:1)
+      at Array.map (<anonymous>)
+
+]]>
+  </system-out>
+  <system-err/>
+</testsuite>
