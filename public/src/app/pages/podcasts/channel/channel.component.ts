@@ -20,28 +20,19 @@ export class ChannelComponent implements OnInit {
   }
  
    ngOnInit(): void {
-    console.log(history.state);
+   // console.log(history.state);
     ///this.channel=history.state;
     this.route.queryParamMap.subscribe((queryParams) => {
   
       this.content = queryParams.get("channel");
-      console.log(JSON.parse(this.content))
-      this.content =JSON.parse(this.content);
+      console.log('channel page - '+JSON.stringify(atob(this.content)));
+      this.content = atob(this.content);
+      this.content = JSON.parse(this.content);
+      console.log(this.content);
       this.channel = [this.content];
      // this.reloadData(this.channel);
     });
    }
-
-  reloadData(chan :any) {
-    
-        // this.apiDataService.getPodcasts().subscribe((channelData)=>{
-        //   this.channel = [channelData];
-        //  console.log(' Channel : '+ JSON.stringify(this.channel));
-        //  })
-     
-
-    }
-
    
 
 }

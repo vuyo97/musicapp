@@ -41,8 +41,8 @@ export class ApiDataService {
            //this.searchid = decodeURIComponent(this.searchid);
       });
      
-      return this.http.get(`/api/deezer/artist/${this.searchid}`).map(artist => {
-        return artist;
+      return this.http.get(`/api/deezer/artistdata/${this.searchid}`).map(artistData => {
+        return artistData;
       });
     }
 

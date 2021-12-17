@@ -23,18 +23,14 @@ export class SearchBarComponent implements OnInit {
   }
 
   search(): void{
-    //this.subscribedParam = "initial value";
-   
     console.log(this.searchName.value);
     this.apiDataService.Search(this.searchName.value).subscribe((resultsData)=>{
       this.results = [resultsData];
-      console.log(this.results);
-   
-      this.router.navigate(['/artists'], { queryParams: {artist: this.searchName.value}});
-     
-       this.searchName.reset();
-          
+      console.log("from search-" + this.results);
+      let encodedSearch = encodeURI(this.searchName.value);
 
+      this.router.navigate(['/artists'], { queryParams: {artist : this.searchName.value }});
+      this.searchName.reset();
     })
    
     }

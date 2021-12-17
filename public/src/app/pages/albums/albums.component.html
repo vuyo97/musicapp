@@ -1,4 +1,5 @@
 <h3 *ngIf="isAlbumsPage" class="w3-text-grey"> Top Albums</h3>
+<a *ngIf="!isAlbumsPage" routerLink="/charts/albums"><h3 class="w3-text-grey">Top Albums</h3></a>
 <div [hidden]="isAlbumsPage" class="w3-container">
 <div #albumRef class="w3-col m12 l12 w3-row mt-10 horizontal-scroll w3-animate-opacity" style="border-top:1px solid lightcyan"> 
     <div class="w3-center  album-cards" *ngFor="let album of albums[0].data.data | slice:0:20 let i=index" >

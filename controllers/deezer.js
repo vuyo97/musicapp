@@ -2,31 +2,34 @@ const asyncWrapper = require('../middleware/async')
 const {createCustomError} = require('../errors/custom-error');
 const axios = require('axios');
 
-const getArtists = async (req,res,result) => {
 
-   const artist = await axios.get(`https://api.deezer.com/genre/0/artists`).then(artist => {
-    res.status(200).json({data : artist.data})
-}).catch(err =>{
-    res.status(500).json({msg: err.message})
-});
-  return console.log(result);
 
- 
- //if(!genre) return next(createCustomError(`No Genre with id : ${id}`, 404));
- 
- 
- }
-
- const getArtist = async (req,res) => {
+ const getArtist = asyncWrapper(async (req,res) => {
     const {id : artistID} = req.params;
-   console.log('get artist -  ' + req.params);
-    console.log(req.params)
-        await axios.get(`https://api.deezer.com/artist/${artistID}`).then(artist => {
-            res.status(200).json({data : artist.data});
+   console.log('get artist');
+    console.log(req.params.id);
+        await axios.get(`https://api.deezer.com/search/artist?q=${artistID}`).then(artist => {
+          const {data} = artist;
+          console.log(data)
+            res.status(200).json({data});
+         
         }).catch(err =>{
             res.status(500).json({msg: err.message})
         });   
-}
+});
+
+const getArtistData = asyncWrapper(async (req,res) => {
+  const {id : artistID} = req.params;
+  console.log('get artist data');
+  const artist = await axios.get(`https://api.deezer.com/artist/${artistID}`).then(artist => {
+    const {data} = artist;
+    console.log('Artist Data');
+    console.log(data)
+      res.status(200).json({data});
+}).catch(err =>{
+   res.status(500).json({msg: err.message})
+});
+});
 
  
 const login = asyncWrapper(async (req,res)=>{
@@ -48,8 +51,8 @@ const search = asyncWrapper(async (req,res)=>{
     const {id : artistID} = req.params;
     console.log(req.params);
   const result = await axios.get(`https://api.deezer.com/search/artist?q=${artistID}`).then(artist => {
-
- const {data}=artist;
+    console.log(artist.data);
+    const {data}=artist;
    res.status(200).json({data});
     
  });
@@ -221,6 +224,7 @@ res.status(500).json({msg: err.message})
 
  module.exports = {
     getArtist,
+    getArtistData,
     login,
     search,
     initRadio,

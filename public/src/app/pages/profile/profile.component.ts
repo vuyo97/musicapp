@@ -17,6 +17,7 @@ export class ProfileComponent implements OnInit {
   content : any;
   id : any;
   artist: any;
+  artistdata: any;
   tracks : any;
   albums : any;
   related : any;
@@ -45,12 +46,13 @@ export class ProfileComponent implements OnInit {
       // as of RxJS 6.5+ we can use a dictionary of sources
       {
         artist: this.apiDataService.getArtistData(artist).subscribe((artistData)=>{
-          this.artist = [artistData];
+          this.artistdata = [artistData];
+          console.log(this.artistdata);
         //  console.log(' Artist : '+ JSON.stringify(this.artist));
          }),
         tracks: this.apiDataService.getArtistTracks(artist).subscribe((artistTracks)=>{
           this.tracks = [artistTracks];
-          console.log(' Tracks : '+ JSON.stringify(this.tracks));
+          //console.log(' Tracks : '+ JSON.stringify(this.tracks));
          }),
         albums: this.apiDataService.getArtistAlbums(artist).subscribe((artistsAlbums)=>{
          this.albums = [artistsAlbums];
@@ -80,19 +82,4 @@ export class ProfileComponent implements OnInit {
 
     }
 
-     openLink(tabName: string) {
-      var i, x, tablinks;
-      x = Array.from(document.getElementsByClassName('artist-tab') as HTMLCollectionOf<HTMLElement>);
-      for (i = 0; i < x.length; i++) {
-         // x[i].style.display = "none";
-    
-      }
-      tablinks = document.getElementsByClassName("tablink");
-      for (i = 0; i < x.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
-      }
-     // (document.getElementById(tabName) as <HTMLElement>)
-      
-    //  evt.currentTarget.className += " w3-red";
-  }
 }

@@ -20,7 +20,7 @@ app.use(express.static(path.join(__dirname,'/public/dist/musicdb-app-angular/'))
 app.use(express.json());
 
 //routes
-app.use('/api/movies', movies);
+//app.use('/api/movies', movies);
 app.use('/api/deezer', deezer);
 app.get('/*',(req,res)=>{
     res.sendFile(__dirname +'/public/dist/musicdb-app-angular/index.html');

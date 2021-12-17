@@ -3,16 +3,14 @@
     <div class="w3-display-container w3-col" *ngFor="let pod of podcasts[0].data.data | slice:0:10 let o=index" >
         <a href="{{pod.link}}" target="_blank">
         <img src="{{pod.picture}}" alt="podcasts-cover" style="width:100%" class="w3-circle w3-hover-opacity">
-        </a>
         <div class="w3-display-middle w3-display-hover w3-large">
-        <small>
-        <div class="w3-text-white w3-black tooltip"
-             [ngbTooltip]="tipContent" triggers="manual" #t2="ngbTooltip" triggers="hover focus" 
-             [autoClose]="'outside'" (mouseenter)="toggleWithDescription(t2,'{{pod.description}}')">  
-             {{pod.description}}
-        </div>
-        </small>
-        </div>
+          <small>
+          <div class="w3-text-white w3-black tooltip">  
+               {{(pod.description.length>60)? (pod.description  | slice:0:60)+'...':(pod.description) }}
+          </div>
+          </small>
+          </div>  
+      </a>
     <h6 class="w3-text-grey w3-center" style="font-weight:500">{{pod.title}}</h6>
     </div>
 </div>
@@ -22,16 +20,14 @@
   <div class="w3-display-container  w3-animate-opacity w3-col m9"  *ngFor="let pod of podcasts[0].data.data | slice:0:30 let p=index" [ngValue]="pod" >
    <a (click)='getLink($event)' > 
      <img src="{{pod.picture_medium}}" alt="Avatar" id="{{pod.id}}" style="width:100%" class="w3-circle w3-hover-opacity">
+     <div class="w3-display-middle w3-display-hover w3-large">
+      <small>
+      <div class="w3-text-white w3-black tooltip">  
+           {{(pod.description.length>60)? (pod.description  | slice:0:60)+'...':(pod.description) }}
+      </div>
+      </small>
+      </div> 
     </a>
-    <div class="w3-display-middle w3-display-hover w3-large">
-    <small>
-    <!-- <div class="w3-text-white w3-black tooltip"
-         [ngbTooltip]="tipContent" triggers="manual" #t2="ngbTooltip" triggers="hover focus" 
-         [autoClose]="'outside'" (mouseenter)="toggleWithDescription(t2,'{{pod.description}}')">
-         {{pod.description}}
-    </div> -->
-    </small>
-    </div>
     <h6 class="w3-text-gray w3-center" style="font-weight:500">{{pod.title}}</h6>
   </div>
   

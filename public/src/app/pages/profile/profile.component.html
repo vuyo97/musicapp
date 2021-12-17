@@ -1,6 +1,6 @@
 <div class="w3-container mt-3  p-20">
 <div class="w3-container w3-col m12 artist-card">
-    <div class="w3-container w3-row" *ngFor="let art of artist">
+    <div class="w3-container w3-row mt-2" *ngFor="let art of artistdata">
         <div class="w3-col m2 l3 w3-center w3-hover-opacity" >
             <img src="{{art.data.picture_medium}}" class="w3-circle" style="width:80%"/>
         </div>
@@ -10,12 +10,6 @@
             <p class="title"><input type="button" class="w3-btn w3-cyan w3-text-white w3-round-xxlarge" value="Mix"></p>
          </div>
     </div>
-    <!-- <div class="differ mt-40">
-    <a class="w3-bar-item " >Discography</a>
-    <a class="w3-bar-item " >Tracks</a>
-    <a class="w3-bar-item " >Singles</a>
-    </div> -->
-
 </div>
 
 <div class="w3-container w3-col m12  mt-20 mb-5">
@@ -60,7 +54,7 @@
                 </div>
               </div>
               <div class="w3-col m8">
-                <p>{{playlist.title}}
+                <p>{{ (playlist.title.length>40)? (playlist.title  | slice:0:40)+'...':(playlist.title)}}
                  <small> <span><p>by {{playlist.user.name}}</p></span></small>
                 </p>
                
@@ -87,7 +81,7 @@
           <div class="w3-container w3-col m12 l12 w3-row mt-10" style="border-top:1px solid lightcyan">
             <a href=""><h3>Related Artists</h3></a>
             <div class="w3-col m2 w3-center w3-hover-opacity mr-10" *ngFor="let rartist of related[0].data.data  | slice:0:12 let b=index">
-              <a routerLink="/profile/{{rartist.id}}"> <img src="{{rartist.picture_medium}}" class="w3-circle" style="width:90%"/></a>
+              <a routerLink="/profile/{{rartist.id}}"> <img src="{{rartist.picture_medium}}" class="w3-circle related-card" style="width:90%"/></a>
               <div class="w3-display-middle w3-display-hover w3-large">
                <p class="">{{rartist.name}}</p>
               </div>
@@ -113,7 +107,7 @@
                     <td></td>
                     <td>Duration</td>
                   </tr>
-                    <tr  *ngFor="let track of tracks[0].data.data  | slice:0:30 let b=index">
+                    <tr  *ngFor="let track of tracks[0].data.data  | slice:0:100 let b=index">
                     <td >{{b + 1}}</td>
                     <td>{{track.title_short}}</td>
                     <td><a href="{{track.link}}">Play</a></td>
@@ -158,7 +152,7 @@
         <my-tab tab-headers [tabTitle]="'Albums'" id="Albums">
           <div class="w3-container w3-animate-opacity w3-col m12 l12 " id="Albums">
             <div class="w3-col m12 grid-container">
-              <div class="w3-center w3-hover-opacity playlist-cards" *ngFor="let album of albums[0].data.data | slice:0:30 let a=index" >
+              <div class="w3-center w3-hover-opacity playlist-cards" *ngFor="let album of albums[0].data.data | slice:0:100 let a=index" >
                 <a href="{{album.link}}" target="_blank"> <img src="{{album.cover_medium}}" class="br-5"/>
                   <div class="w3-display-middle w3-display-hover w3-medium">
                     <p class="w3-text-black">{{album.title}}</p>
@@ -191,7 +185,7 @@
               <div  class="w3-col m12 w3-row ">
                 <!-- <div class="w3-display-container  col-md-12"> -->
                    <div class="w3-col m2 w3-center w3-hover-opacity mr-10" *ngFor="let rartist of related[0].data.data  | slice:0:30 let b=index">
-                    <a routerLink="/profile/{{rartist.id}}"> <img src="{{rartist.picture_medium}}" class="w3-circle" style="width:90%"/></a>
+                    <a routerLink="/profile/{{rartist.id}}"> <img src="{{rartist.picture_medium}}" class="w3-circle related-card" style="width:90%"/></a>
                     <div class="w3-display-middle w3-display-hover w3-large">
                      <p class="">{{rartist.name}}</p>
                     </div>

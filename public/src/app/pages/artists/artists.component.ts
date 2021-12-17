@@ -28,9 +28,12 @@ export class ArtistsComponent implements OnInit {
   
   ngOnInit(): void{
     this.route.queryParamMap.subscribe((queryParams) => {
-    console.log('innit')
+     // console.log("raw param value -"+queryParams.get("artist"));
     this.content = queryParams.get("artist");
+   // console.log("raw /assigned to var - " + this.content);
     this.artist = this.content;
+   // console.log("decoded - "+ this.artist)
+   // console.log(decodeURI(queryParams.get("artist"));
     this.reloadData(this.artist);
   });
 }
@@ -39,7 +42,7 @@ export class ArtistsComponent implements OnInit {
   this.apiDataService.getArtist().subscribe((artistsData)=>{
     
      this.artist = [artistsData];
-     console.log(this.artist);
+     console.log("from artists page -"+this.artist);
   }
   )};
 

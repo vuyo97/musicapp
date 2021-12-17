@@ -14,6 +14,10 @@
   //  border:1px solid red;
 }
 
+.related-card{
+    box-shadow: 1px 0px 11px 3px #19192229;
+}
+
 .br{
     border-radius:3px;
     // box-shadow: grayscale($color: #000000);
@@ -47,7 +51,7 @@
 border-bottom:2px solid red;
 }
 
-.tab-headers >a :active{
+.tab-headers > li > a :active{
 border-bottom:2px solid red;
 }
 
@@ -56,7 +60,7 @@ border-bottom:2px solid red;
   }
 
  td :hover{
-     background-color: grey;
+    // background-color: grey;
  }
 
  .grid-container {

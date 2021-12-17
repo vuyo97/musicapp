@@ -4,7 +4,7 @@ const axios = require('axios');
 
 //import controller functions
 const {callback,login,search,initRadio,
-    getArtist,getArtistAlbums,getArtistTop,getArtistRelated,getArtistPlaylists,
+    getArtist,getArtistData,getArtistAlbums,getArtistTop,getArtistRelated,getArtistPlaylists,
     getArtistFans,
     getArtistRadio,
     chartTracks,
@@ -13,9 +13,9 @@ const {callback,login,search,initRadio,
     chartArtists} = require('../controllers/deezer');
 
 
-
-router.route('/artist/:id').get(getArtist);
 router.route('/callback').get(callback);
+router.route('/artist/:id').get(getArtist);
+router.route('/artistdata/:id').get(getArtistData);
 router.route('/artist/:id/albums').get(getArtistAlbums);
 router.route('/artist/:id/related').get(getArtistRelated);
 router.route('/artist/:id/playlists').get(getArtistPlaylists);
