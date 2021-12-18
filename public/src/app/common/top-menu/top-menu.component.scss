@@ -1,0 +1,49 @@
+.top-menu{
+    height: 50px;
+    padding: 8px 0px 0px 8px;
+}
+.logo{
+    color:Red;
+    font-size:large;
+    padding : 5px 0px;
+}
+.user{
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    margin-top: -21.5%;
+}
+.nav-container{
+    padding-left: 60px;
+}
+
+.artist-img{
+    border-radius:50%
+}
+
+
+#search-container{
+    top:0;
+    width:40%;
+    right:0;
+    left:0;
+// background-color:black;
+    height:20px;
+    margin:0px 0px 20px 120px;
+}
+
+a{
+    text-transform: none;
+    text-decoration:none;
+}
+
+a:hover {
+    color:red;
+  //  background-color:blue;
+    font-weight:600;
+    text-decoration:none;
+}
+
+a:active {
+    color:Red;
+}

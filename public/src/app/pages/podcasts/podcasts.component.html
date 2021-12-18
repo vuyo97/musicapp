@@ -1,0 +1,35 @@
+<div [hidden]="isPodPage" class="w3-container w3-animate-opacity horizontal-scroll">
+  <a routerLink="/charts/podcasts" class="w3-text-grey"><h3>Top Podcasts</h3></a>
+    <div class="w3-display-container w3-col" *ngFor="let pod of podcasts[0].data.data | slice:0:10 let o=index" >
+        <a href="{{pod.link}}" target="_blank">
+        <img src="{{pod.picture}}" alt="podcasts-cover" style="width:100%" class="w3-circle w3-hover-opacity">
+        <div class="w3-display-middle w3-display-hover w3-large">
+          <small>
+          <div class="w3-text-white w3-black tooltip">  
+               {{(pod.description.length>60)? (pod.description  | slice:0:60)+'...':(pod.description) }}
+          </div>
+          </small>
+          </div>  
+      </a>
+    <h6 class="w3-text-grey w3-center" style="font-weight:500">{{pod.title}}</h6>
+    </div>
+</div>
+
+<div *ngIf="isPodPage" class="w3-container grid-container">
+  <h3 *ngIf="isPodPage" class="w3-text-grey">Top Podcasts</h3>
+  <div class="w3-display-container w3-animate-opacity w3-col m9"  *ngFor="let pod of podcasts[0].data.data | slice:0:30 let p=index">
+   <a (click)='getLink($event)'> 
+     <img src="{{pod.picture_medium}}" alt="Avatar"  style="width:100%" class="w3-circle w3-hover-opacity">
+     <div class="w3-display-middle-big w3-display-hover w3-large">
+      <small>
+      <div class="w3-text-white w3-black tooltip-big" id="{{pod.id}}">  
+           {{(pod.description.length>120)? (pod.description  | slice:0:120)+'...':(pod.description) }}
+      </div>
+      </small>
+      </div> 
+    </a>
+    <h6 class="w3-text-gray w3-center" style="font-weight:500">{{pod.title}}</h6>
+  </div>
+</div>
+
+
