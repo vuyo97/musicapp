@@ -14,3 +14,12 @@
 .artist-card{
     box-shadow: 0 1px 6px rgb(25 25 34 / 16%);
 }
+
+.grid-container {
+    display: grid;
+    grid-template-columns:repeat(6,1fr);
+    grid-gap: 0px;
+    //background-color: #2196F3;
+    //padding: 10px;
+}
+

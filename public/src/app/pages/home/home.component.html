@@ -1,16 +1,12 @@
 
-<div>
-<a href="/charts/radio" class="w3-text-grey"><h3>Radio</h3></a>    
+<div>   
 <app-radio [isRadioPage]="isRadioPage"></app-radio>  
 </div>
 
 <div>
-<app-albums [isAlbumsPage]="isAlbumsPage">
-<a routerLink="/charts/albums"><h3 class="w3-text-grey">Top Albums</h3></a>
-</app-albums>
+<app-albums [isAlbumsPage]="isAlbumsPage"></app-albums>
 </div>
 
 <div>
-<a routerLink="/charts/podcasts" class="w3-text-grey"><h3>Podcasts</h3></a>
 <app-podcasts [isPodPage]="isPodPage"></app-podcasts>
 </div>

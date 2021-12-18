@@ -68,3 +68,15 @@
   content: '';
   width: 10px;
 }
+
+.description-big{
+    width: 100%;
+    height: 100%;
+    padding: 56px;
+    opacity: .8;
+    font-size: 11.5px;
+    position: inherit;
+    border-radius: 5px;
+    margin: auto 27px!important;
+    cursor: pointer;
+}
