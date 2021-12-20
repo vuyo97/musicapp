@@ -153,12 +153,12 @@ export class ApiDataService {
       });
     }
     
-    // getPodcastChannel(id:any){
-    //   return this.http.get( `/api/deezer/podcast/channel/${this.id}`).map(channel => {
-    //     return channel;
+    getToptracks(){
+      return this.http.get( `/api/deezer/charts/tracks`).map(tracklistData => {
+        return tracklistData;
        
-    //   });
-    // }
+      });
+    }
     
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
       return this.channelData;
@@ -166,6 +166,13 @@ export class ApiDataService {
     getChartAlbums(){
       return this.http.get('/api/deezer/charts/albums').map(albums => {
       return albums;
+       
+      });
+    }
+
+    getAlbum(id:any){
+      return this.http.get(`/api/deezer/album/${id}`).map(album => {
+      return album;
        
       });
     }

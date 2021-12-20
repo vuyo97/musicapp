@@ -27,7 +27,7 @@
                   <td >{{i+1}}</td>
                   <td>{{track.title_short}}</td>
                   <td><a href="{{track.link}}">Play</a></td>
-                  <td><span *ngIf="track.explicit_lyrics" class="w3-badge w3-round w3-text-white w3-grey w3-border w3-tiny" style="padding:1px 5px 1px 5px">E</span>
+                  <td><span *ngIf="track.explicit_lyrics" class="w3-badge w3-round w3-text-grey w3-white w3-border w3-tiny" style="padding:1px 5px 1px 5px">EXPLICIT</span>
                       <span *ngIf="!track.explicit_lyrics"> </span>
                   </td>                  
                   <td>{{track.duration | duration}}</td>
@@ -96,7 +96,7 @@
 
     <!--top tracks-->
         <my-tab tab-headers [tabTitle]="'Tracks'" id="tracks">
-          <div class="w3-container artist-tab w3-animate-opacity w3-col m12 l12 " id="tracks">
+          <div class="w3-animate-opacity w3-col m12 l12 ">
             <div class="w3-col m12 card-container">
               <table class="table">
                 <tbody>
@@ -111,7 +111,7 @@
                     <td >{{b + 1}}</td>
                     <td>{{track.title_short}}</td>
                     <td><a href="{{track.link}}">Play</a></td>
-                    <td><span *ngIf="track.explicit_lyrics" class="w3-badge w3-round w3-text-white w3-grey w3-border w3-tiny" style="padding:1px 5px 1px 5px">E</span>
+                    <td><span *ngIf="track.explicit_lyrics" class="w3-badge w3-round w3-text-grey w3-white w3-border w3-tiny" style="padding:1px 5px 1px 5px">EXPLICIT</span>
                      <span  *ngIf="!track.explicit_lyrics" style="padding:1px 5px 1px 5px"> </span></td>
                     <td>{{track.duration | duration}}</td>
                   </tr>
@@ -153,7 +153,7 @@
           <div class="w3-container w3-animate-opacity w3-col m12 l12 " id="Albums">
             <div class="w3-col m12 grid-container">
               <div class="w3-center w3-hover-opacity playlist-cards" *ngFor="let album of albums[0].data.data | slice:0:100 let a=index" >
-                <a href="{{album.link}}" target="_blank"> <img src="{{album.cover_medium}}" class="br-5"/>
+                <a routerLink="/album/{{album.id}}"> <img src="{{album.cover_medium}}" class="br-5"/>
                   <div class="w3-display-middle w3-display-hover w3-medium">
                     <p class="w3-text-black">{{album.title}}</p>
                   </div>

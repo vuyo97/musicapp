@@ -1,1 +1,86 @@
-<p>tracks works!</p>
+<div [hidden]="isTracksPage" class="w3-container">
+    <a *ngIf="!isTracksPage" routerLink="/charts/tracks" class="w3-text-grey"><h3>Top Tracks</h3></a>
+  <div class="w3-col m12 l12 w3-row mt-10 horizontal-scroll w3-animate-opacity" style="border-top:1px solid lightcyan"> 
+      <div class="w3-center track-cards" *ngFor="let track of tracklist[0].data.data | slice:0:20 let i=index" >
+          <a href="{{track.link}}" target="_blank"> <img src="{{track.album.cover_medium}}" class="br-5 w3-hover-opacity"/>
+            <!-- <div class="w3-display-middle w3-display-hover w3-large">
+              <small>
+              <div class="w3-text-black description-big">  
+                   <h4>{{track.artist.name}}</h4>
+              </div>
+              </small>
+              </div> -->
+          </a>
+          <div class="w3-container">
+          <span><small> <h5 class="w3-text-grey" style="font-weight:500">{{i+1}}. {{track.title}} | <a routerLink="profile/{{track.artist.id}}">{{track.artist.name}}</a>
+            &nbsp;<span *ngIf="track.explicit_lyrics" class="w3-badge w3-round w3-text-grey w3-white w3-border w3-small" style="padding:1px 5px 1px 5px">E</span>
+            &nbsp;<span *ngIf="!track.explicit_lyrics"> </span>
+          </h5>
+          </small></span>
+       </div>
+      </div>
+  </div>
+  </div>
+  
+  <div *ngIf="isTracksPage" class="w3-container w3-animate-opacity w3-col m12 l12 mb-2" >
+    <h3 *ngIf="isTracksPage" class="w3-text-grey"> Top Tracks</h3>
+    <!-- <div class="w3-col m12 grid-container mb-2">
+      <div class="w3-center track-cards w3-animate-opacity" *ngFor="let track of tracklist[0].data.data | slice:0:30 let a=index" >
+        <a routerLink="/profile/{{track.artist.id}}"><img src="{{track.album.cover_medium}}" class="br-5 w3-hover-opacity"/>
+          <div class="w3-display-middle w3-display-hover w3-large">
+            <small>
+            <div class="w3-text-white w3-black description-big"> 
+                 <h4>{{track.artist.name}}</h4>
+            </div>
+            </small>
+            </div>
+        </a>
+        <div class="w3-container">
+        <span><small> 
+        <h4 class="w3-text-grey">{{track.title}}</h4>
+        <p class="title">by <strong>{{track.artist.name}}</strong>
+         &nbsp;<span *ngIf="track.explicit_lyrics" class="w3-badge w3-round w3-text-white w3-grey w3-border w3-tiny" style="padding:1px 5px 1px 5px">E</span>
+         &nbsp;<span *ngIf="!track.explicit_lyrics"> </span></p>
+        </small></span>
+       </div>
+      </div>
+    </div> -->
+
+    <div class="w3-container w3-animate-opacity w3-col m12 l12 ">
+        <div class="w3-col m12 card-container">
+          <table class="table">
+            <tbody>
+              <tr>
+                <td>#</td>
+                <td></td>
+                <td>Title</td>
+                <td></td>
+                <td></td>
+                <td>Duration</td>
+              </tr>
+                <tr  *ngFor="let track of tracklist[0].data.data | slice:0:30 let b=index">
+                <td >{{b + 1}}</td>
+                <td>{{track.title_short}} by <b><a routerLink="/profile/{{track.artist.id}}">{{track.artist.name}}</a></b></td>
+                <td> <a href="{{track.link}}" target="_blank"> <img src="{{track.album.cover_medium}}" class="br-5 w3-hover-opacity"/>
+                    <div class="w3-display-middle w3-display-hover w3-large">
+                      <small>
+                      <div class="">  
+                           <h4><img src="./assets/images/play2.png" class="controls"></h4>
+                      </div>
+                      </small>
+                      </div>
+                  </a></td>
+                <td><a href="{{track.link}}">listen</a></td>
+                <td><span *ngIf="track.explicit_lyrics" class="w3-badge w3-round w3-text-grey w3-white w3-border w3-tiny" style="padding:1px 5px 1px 5px">EXPLICIT</span>
+                 <span  *ngIf="!track.explicit_lyrics"> </span></td>
+                <td>{{track.duration | duration}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      
+      </div>
+
+  </div>
+  
+  

@@ -59,7 +59,8 @@ color:lightseagreen;
 
 .grid-container {
     display: grid;
-    grid-template-columns: 195.31px 195.31px 195.31px 195.31px 195.31px 195.31px 195.31px;
+    grid-template-columns: repeat(8,1fr);
+    // grid-template-columns: 195.31px 195.31px 195.31px 195.31px 195.31px 195.31px 195.31px;
     grid-gap: 0px;
     //background-color: #2196F3;
     //padding: 10px;

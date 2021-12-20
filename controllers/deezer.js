@@ -75,6 +75,21 @@ const getArtistAlbums = asyncWrapper(async (req,res)=>{
  
  })
 
+const getAlbum = asyncWrapper(async (req,res)=>{
+
+    const {id : albumID} = req.params;
+    console.log(req.params);
+  const result = await axios.get(`https://api.deezer.com/album/${albumID}`).then(album => {
+
+ const {data}=album;
+   res.status(200).json({data});
+    
+ });
+ //if(!genre) return next(createCustomError(`No Genre with id : ${id}`, 404));
+ 
+ 
+ })
+
 const getArtistTop = asyncWrapper(async (req,res)=>{
 
     const {id : artistID} = req.params;
@@ -229,6 +244,7 @@ res.status(500).json({msg: err.message})
     search,
     initRadio,
     getArtistAlbums,
+    getAlbum,
     getArtistTop,
     callback,
     getArtistRelated,
@@ -238,5 +254,6 @@ res.status(500).json({msg: err.message})
     chartTracks,
     chartPodcasts,
     chartAlbums,
-    chartArtists
+    chartArtists,
+    chartTracks
 }

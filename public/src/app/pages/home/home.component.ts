@@ -1,7 +1,5 @@
 import { Component, OnInit ,ContentChild, AfterContentInit} from '@angular/core';
-import { AlbumsComponent } from '../albums/albums.component';
 import { Router, ActivatedRoute } from '@angular/router';
-
 
 @Component({
   selector: 'app-home',
@@ -15,13 +13,13 @@ export class HomeComponent implements OnInit {
   isAlbumsPage = false;
   isRadioPage = false;
   isPodPage = false;
+  isTracksPage = false;
+  
   ngOnInit(): void {
   }
 
-  ngAfterContentInit(){
-    console.log(this.router.url.split('/')[2]);
-  }
-
-  
+  // ngAfterContentInit(){
+  //   console.log(this.router.url.split('/')[2]);
+  // }
 
 }

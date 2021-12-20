@@ -4,7 +4,7 @@ const axios = require('axios');
 
 //import controller functions
 const {callback,login,search,initRadio,
-    getArtist,getArtistData,getArtistAlbums,getArtistTop,getArtistRelated,getArtistPlaylists,
+    getArtist,getArtistData,getArtistAlbums,getAlbum,getArtistTop,getArtistRelated,getArtistPlaylists,
     getArtistFans,
     getArtistRadio,
     chartTracks,
@@ -17,6 +17,7 @@ router.route('/callback').get(callback);
 router.route('/artist/:id').get(getArtist);
 router.route('/artistdata/:id').get(getArtistData);
 router.route('/artist/:id/albums').get(getArtistAlbums);
+router.route('/album/:id').get(getAlbum);
 router.route('/artist/:id/related').get(getArtistRelated);
 router.route('/artist/:id/playlists').get(getArtistPlaylists);
 router.route('/artist/:id/top').get(getArtistTop);

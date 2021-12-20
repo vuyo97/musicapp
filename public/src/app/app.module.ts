@@ -27,6 +27,7 @@ import { TracksComponent } from './pages/tracks/tracks.component';
 import { SearchComponent } from './pages/search/search.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { ChannelComponent } from './pages/podcasts/channel/channel.component';
+import { AlbumComponent } from './pages/albums/album/album.component';
 
 
 // import { FontAwesomeModule, FaIconLibrary ,FaConfig } from '@fortawesome/angular-fontawesome';
@@ -52,7 +53,8 @@ import { ChannelComponent } from './pages/podcasts/channel/channel.component';
     AlbumsComponent,
     TracksComponent,
     SearchComponent,
-    ChannelComponent
+    ChannelComponent,
+    AlbumComponent
   ],
   imports: [
     BrowserModule,

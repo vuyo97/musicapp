@@ -29,7 +29,6 @@ export class ProfileComponent implements OnInit {
   constructor(private apiDataService: ApiDataService,private cd: ChangeDetectorRef,private router: Router,private readonly route: ActivatedRoute) { }
 
   ngOnInit(): void {
-
     this.route.paramMap.subscribe((params) => {
       console.log(params)
       console.log('profile')

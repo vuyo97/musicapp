@@ -1,6 +1,7 @@
-<div [hidden]="isPodPage" class="w3-container w3-animate-opacity horizontal-scroll">
-  <a routerLink="/charts/podcasts" class="w3-text-grey"><h3>Top Podcasts</h3></a>
-    <div class="w3-display-container w3-col" *ngFor="let pod of podcasts[0].data.data | slice:0:10 let o=index" >
+<div [hidden]="isPodPage" class="w3-container">
+<a *ngIf="!isPodPage" routerLink="/charts/podcasts" class="w3-text-grey"><h3>Top Podcasts</h3></a>
+<div class="w3-col m12 l12 w3-row mt-10 horizontal-scroll w3-animate-opacity mt-3">
+  <div class="w3-display-container w3-col" *ngFor="let pod of podcasts[0].data.data | slice:0:10 let o=index" >
         <a href="{{pod.link}}" target="_blank">
         <img src="{{pod.picture}}" alt="podcasts-cover" style="width:100%" class="w3-circle w3-hover-opacity">
         <div class="w3-display-middle w3-display-hover w3-large">
@@ -14,9 +15,11 @@
     <h6 class="w3-text-grey w3-center" style="font-weight:500">{{pod.title}}</h6>
     </div>
 </div>
+</div>
 
-<div *ngIf="isPodPage" class="w3-container grid-container">
-  <h3 *ngIf="isPodPage" class="w3-text-grey">Top Podcasts</h3>
+<div *ngIf="isPodPage" class="w3-container w3-animate-opacity w3-col m12 l12">
+<h3  class="w3-text-grey" *ngIf="isPodPage">Top Podcasts</h3>
+<div *ngIf="isPodPage" class="w3-col grid-container">
   <div class="w3-display-container w3-animate-opacity w3-col m9"  *ngFor="let pod of podcasts[0].data.data | slice:0:30 let p=index">
    <a (click)='getLink($event)'> 
      <img src="{{pod.picture_medium}}" alt="Avatar"  style="width:100%" class="w3-circle w3-hover-opacity">
@@ -30,6 +33,7 @@
     </a>
     <h6 class="w3-text-gray w3-center" style="font-weight:500">{{pod.title}}</h6>
   </div>
+</div>
 </div>
 
 

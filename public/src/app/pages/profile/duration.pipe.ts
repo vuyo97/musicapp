@@ -5,14 +5,15 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class durationPipe implements PipeTransform {
   //duration!: number;
-  transform(seconds: number, minute= 60): number {
+  transform(seconds: number, minute= 60): string {
     // console.log('seconds :' + seconds);
     // console.log('minutes : ' + minute);
     let duration = seconds/minute;
    
-      const final = (Math.round(duration * 100) / 100).toFixed(2).toString()
-      final.replace(".", ":");
-    return parseFloat(final);
+      let final = (Math.round(duration * 100) / 100).toFixed(2).toString()
+      console.log('pipr result - : ' + final);
+      final =  final.replace('.', ':');
+    return final;
   }
 
 }

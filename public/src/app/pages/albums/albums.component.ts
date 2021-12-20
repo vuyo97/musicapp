@@ -20,12 +20,12 @@ export class AlbumsComponent implements OnInit {
    )
   }
 
-  toggleWithDescription(tooltip: any, description: string) {
-    if (tooltip.isOpen()) {
-      tooltip.close();
-    } else {
-      tooltip.open({ description });
-    }
-  }
+  // toggleWithDescription(tooltip: any, description: string) {
+  //   if (tooltip.isOpen()) {
+  //     tooltip.close();
+  //   } else {
+  //     tooltip.open({ description });
+  //   }
+  // }
 
 }
