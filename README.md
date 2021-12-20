@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # musicapp
 Deezer Wep Api
 
