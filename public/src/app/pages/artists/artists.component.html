@@ -1,8 +1,8 @@
 <h3 class="w3-text-grey">Top Results</h3>
 <div class="w3-display-container w3-animate-opacity">
-<div  class="w3-col m12 w3-row  grid-container">
+<div  class="w3-col m12 grid-container">
    <div class="w3-col w3-center" *ngFor="let art of artist[0].data.data">
-    <a routerLink="/profile/{{art.id}}"> <img src="{{art.picture_medium}}" class="w3-circle w3-hover-opacity artist-card" style="width:90%"/></a>
+    <a routerLink="/profile/{{art.id}}"> <img src="{{art.picture_big}}" class="w3-circle w3-hover-opacity artist-card" style="width:90%"/></a>
     <div class="w3-container">
     <h5 class="w3-text-grey">{{art.name}}</h5>
     <p class="title">{{art.nb_fan}} fans</p>

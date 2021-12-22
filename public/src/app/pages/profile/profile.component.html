@@ -6,7 +6,11 @@
         </div>
          <div class="w3-col m8 l9">
             <h2 >{{art.data.name}}</h2>
-            <p class="title">{{art.data.nb_fan}} fans</p>
+            <p class="title">{{art.data.nb_fan}} fans
+              &nbsp;
+              <span class="w3-grey w3-text-white w3-small br-5" style="padding:3px">{{art.data.type}}</span>
+            </p>
+            
             <p class="title"><input type="button" class="w3-btn w3-cyan w3-text-white w3-round-xxlarge" value="Mix"></p>
          </div>
     </div>
@@ -19,12 +23,15 @@
         <my-tab class="tab-headers" [tabTitle]="'Discography'">
           <div class="w3-row">
         <div class="w3-container artist-tab  w3-animate-opacity w3-col m7 l9 " id="discography">
-           <a href=""><h3>Top Tracks</h3></a>
+           <h3>Top Tracks</h3>
           <div class="w3-card-4 br w3-col m12 card-container">
             <table class="table">
               <tbody>
-                <tr *ngFor="let track of tracks[0].data.data | slice:0:5 let i=index">
-                  <td >{{i+1}}</td>
+                <tr *ngFor="let track of tracks[0].data.data | slice:0:5 let i=index" class="display-hover">
+                  <td > <a href="{{track.link}}" target="_blank">
+                    <img src="../../../../assets/images/play.png" class="controls animate__animated animate__pulse">
+                      {{i + 1}}
+                  </a></td>
                   <td>{{track.title_short}}</td>
                   <td><a href="{{track.link}}">Play</a></td>
                   <td><span *ngIf="track.explicit_lyrics" class="w3-badge w3-round w3-text-grey w3-white w3-border w3-tiny" style="padding:1px 5px 1px 5px">EXPLICIT</span>
@@ -43,7 +50,7 @@
     
      
         <div class="w3-col w3-container m5 l3">  
-         <a href=""> <h4>Playlists</h4></a>
+        <h3>Playlists</h3>
           <div class="w3-col m12 card-container">
            <li class="list-items" *ngFor="let playlist of playlists[0].data.data | slice:0:3 let i=index">
              <div class="w3-container w3-row">
@@ -66,9 +73,9 @@
 
           <!-- Albums -->
           <div class="w3-container w3-col m12 l12 w3-row mt-10" style="border-top:1px solid lightcyan">
-            <a href=""><h3>Albums</h3></a>
+            <h3>Albums</h3>
             <div class="w3-col m2 w3-center w3-hover-opacity mt-2 album-card" *ngFor="let album of albums[0].data.data | slice:0:5 let i=index" >
-              <a> <img src="{{album.cover_medium}}" class="br-5" style="width:100%"/></a>
+              <a routerLink="/album/{{album.id}}"><img src="{{album.cover_medium}}" class="br-5" style="width:100%"/></a>
                 <div class="w3-container">
                 <span><small> <h4 class="">{{album.title}}</h4>
                 <p class="title">Released on {{album.release_date}}</p>
@@ -79,7 +86,7 @@
 
           <!-- Related -->
           <div class="w3-container w3-col m12 l12 w3-row mt-10" style="border-top:1px solid lightcyan">
-            <a href=""><h3>Related Artists</h3></a>
+            <h3>Related Artists</h3>
             <div class="w3-col m2 w3-center w3-hover-opacity mr-10" *ngFor="let rartist of related[0].data.data  | slice:0:12 let b=index">
               <a routerLink="/profile/{{rartist.id}}"> <img src="{{rartist.picture_medium}}" class="w3-circle related-card" style="width:90%"/></a>
               <div class="w3-display-middle w3-display-hover w3-large">
@@ -107,8 +114,11 @@
                     <td></td>
                     <td>Duration</td>
                   </tr>
-                    <tr  *ngFor="let track of tracks[0].data.data  | slice:0:100 let b=index">
-                    <td >{{b + 1}}</td>
+                    <tr  *ngFor="let track of tracks[0].data.data  | slice:0:100 let b=index" class="display-hover"></tr>
+                      <td > <a href="{{track.link}}" target="_blank">
+                        <img src="../../../../assets/images/play.png" class="controls animate__animated animate__pulse">
+                          {{b + 1}}
+                      </a></td>
                     <td>{{track.title_short}}</td>
                     <td><a href="{{track.link}}">Play</a></td>
                     <td><span *ngIf="track.explicit_lyrics" class="w3-badge w3-round w3-text-grey w3-white w3-border w3-tiny" style="padding:1px 5px 1px 5px">EXPLICIT</span>
