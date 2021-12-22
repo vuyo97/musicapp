@@ -10,7 +10,7 @@
                 <h4><a routerLink="/profile/{{album.data.artist.id}}">{{album.data.artist.name}}</a></h4>
                 <p class="title">{{album.data.fans}} fans</p>
                 
-                <p class="title"><small>Released {{album.data.release_date}} - <color class="title w3-text-cyan">{{album.data.label}}</color> - {{album.data.nb_tracks}} tracks - {{album.data.duration | duration}} minutes </small></p>
+                <p class="title"><small>Released {{album.data.release_date}} - <color class="title w3-text-cyan">{{album.data.label}}</color> - {{album.data.nb_tracks}} tracks - {{album.data.duration | duration}} </small></p>
                
                 &nbsp;
                 <div class="w3-row m6 l6" style="display:flex">
@@ -35,9 +35,9 @@
                   <td></td>
                   <td>Duration</td>
                 </tr>
-                  <tr  *ngFor="let track of tracks[0] | slice:0:30 let b=index">
-                    <td class="display-hover"> <a href="{{track.link}}" target="_blank">
-                      <img src="../../../../assets/images/play.png" class="controls">
+                  <tr  *ngFor="let track of tracks[0] | slice:0:30 let b=index" class="display-hover">
+                    <td > <a href="{{track.link}}" target="_blank">
+                      <img src="../../../../assets/images/play.png" class="controls animate__animated animate__pulse">
                         {{b + 1}}
                     </a></td>
                   <td>{{track.title_short}}</td>

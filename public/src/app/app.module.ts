@@ -28,6 +28,7 @@ import { SearchComponent } from './pages/search/search.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { ChannelComponent } from './pages/podcasts/channel/channel.component';
 import { AlbumComponent } from './pages/albums/album/album.component';
+import 'animate.css';
 
 
 // import { FontAwesomeModule, FaIconLibrary ,FaConfig } from '@fortawesome/angular-fontawesome';
