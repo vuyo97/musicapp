@@ -114,7 +114,7 @@
                     <td></td>
                     <td>Duration</td>
                   </tr>
-                    <tr  *ngFor="let track of tracks[0].data.data  | slice:0:100 let b=index" class="display-hover"></tr>
+                    <tr  *ngFor="let track of tracks[0].data.data  | slice:0:100 let b=index" class="display-hover">
                       <td > <a href="{{track.link}}" target="_blank">
                         <img src="../../../../assets/images/play.png" class="controls animate__animated animate__pulse">
                           {{b + 1}}
