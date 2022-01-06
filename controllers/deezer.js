@@ -43,7 +43,8 @@ const login = asyncWrapper(async (req,res)=>{
  })
 
 const callback = asyncWrapper(async (req,res)=>{
-     res.status(200).send('public/src/assets/player/dz.js')
+      console.log(res.headers);
+     res.status(200).send('public/src/assets/player/dz.js');
  })
 
 const search = asyncWrapper(async (req,res)=>{

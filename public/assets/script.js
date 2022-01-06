@@ -7,10 +7,10 @@
 //       }
 //     }
 //   })
-
+console.log("script");
 DZ.init({
     appId  : '514702',
-    channelUrl : `/api/deezer/callback`,
+    channelUrl : `http://localhost:5000/api/deezer/callback`,
     player : {
         container: 'player',
         width : 1280,
