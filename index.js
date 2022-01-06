@@ -28,15 +28,12 @@ const errorHandlerMiddleware= require('./middleware/error-handler');
 //     'upgrade-insecure-requests': ["'none'"]
 //   }
 
-
 const port = process.env.PORT || 5000;
-
 
 //  app.use(contentSecurityPolicy ({
 //     reportOnly: false
 //  }));
  console.log(contentSecurityPolicy.getDefaultDirectives())
-
 
 
 //middleware

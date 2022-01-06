@@ -8,7 +8,10 @@
 //     }
 //   })
 
-DZ.ready(function(){
+DZ.ready(function(sdk_options){
+    console.log('DZ SDK is ready', sdk_options);
+});
+
 DZ.init({
     appId  : '514702',
     channelUrl : `http://localhost:5000/api/deezer/callback`,
@@ -16,12 +19,20 @@ DZ.init({
         container: 'player',
         width : 1680,
         height : 70,
-        onload : function(){
+        onload : function(response){
             try{
-                 console.log('Player loaded!!!');
+                 console.log('Player loaded!!!' + response);
               // DZ.player.playTracks([654870372], true)
             }catch(err){console.log(err)};
 }
     }
 })
+
+
+DZ.getLoginStatus(function(response) {
+	if (response.authResponse) {
+		console.log("logged in and connected user" + response.authResponse);
+	} else {
+		console.log("no user session available"  + response.authResponse);
+	}
 });

@@ -1,6 +1,8 @@
 const asyncWrapper = require('../middleware/async')
 const {createCustomError} = require('../errors/custom-error');
 const axios = require('axios');
+const path = require('path');
+
 
 
 
@@ -33,7 +35,7 @@ const getArtistData = asyncWrapper(async (req,res) => {
 
  
 const login = asyncWrapper(async (req,res)=>{
-    const apiAuth=`https://connect.deezer.com/oauth/auth.php?app_id=514702&redirect_uri=http://localhost:5000/albums&perms=basic_access,email`;
+    const apiAuth=`https://connect.deezer.com/oauth/auth.php?app_id=514702&redirect_uri=http://localhost/&perms=basic_access,email`;
   await axios.get(apiAuth).then(result => {
      res.status(200).send(result.data)
  });
@@ -43,8 +45,7 @@ const login = asyncWrapper(async (req,res)=>{
  })
 
 const callback = asyncWrapper(async (req,res)=>{
-      console.log(res.headers);
-     res.status(200).send('public/src/assets/player/dz.js');
+    res.sendFile(path.join(__dirname + 'public/src/assets/player/channel.html'));
  })
 
 const search = asyncWrapper(async (req,res)=>{

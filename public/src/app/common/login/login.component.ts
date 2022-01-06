@@ -11,12 +11,7 @@ export class LoginComponent implements OnInit {
   constructor(private apiDataService: ApiDataService) { }
 
   ngOnInit(): void {
-    this.apiDataService.login().subscribe((res)=>{
-    
-      this.response = [res];
-      console.log(this.response);
-   }
-   )
+    this.apiDataService.login();
   }
 
 }
