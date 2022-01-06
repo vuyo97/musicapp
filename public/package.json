@@ -4,7 +4,8 @@
   "scripts": {
     "ng": "ng",
     "prestart": "npm install",
-    "start": "ng build && nodemon ../index.js -o",
+    "postinstall": "ng build --prod",
+    "start": "nodemon ../index.js -o",
     "build": "ng build && nodemon ../index.js",
     "test": "ng test",
     "hacker-rank:start": "ng serve --host 0.0.0.0 --port 8000 --disable-host-check",
@@ -14,6 +15,8 @@
   },
   "private": true,
   "dependencies": {
+    "@angular/cli": "^13.1.0",
+    "@angular/compiler-cli": "~13.1.0",
     "@angular/animations": "~13.1.0",
     "@angular/common": "~13.1.0",
     "@angular/compiler": "~13.1.0",
