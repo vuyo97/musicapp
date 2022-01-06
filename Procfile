@@ -1,1 +1,1 @@
-web: npm run start && node index.js
+web: nodemon index.js
