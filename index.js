@@ -1,5 +1,6 @@
 const Joi = require('joi');
 const express = require('express');
+const cool = require('cool-ascii-faces');
 const bodyParser = require('body-parser');
 const path = require('path');
 const contentSecurityPolicy  = require('helmet-csp');
@@ -36,32 +37,7 @@ const port = process.env.PORT || 5000;
 //  }));
  console.log(contentSecurityPolicy.getDefaultDirectives())
 
-// app.use(function (req, res, next) {
-//     res.setHeader(
-//       'Report-To',
-//       '{"group":"csp-endpoint","max_age":10886400,"endpoints":[{"url":"http://localhost:5000/__cspreport__"}],"include_subdomains":true}'
-//     );
-//     res.setHeader(
-//       'Content-Security-Policy-Report-Only',
-//       "script-src-elem 'unsafe-inline'; script-src 'unsafe-inline'; frame-src 'unsafe-inline'; report-to csp-endpoint; report-uri /__cspreport__;"
-//     );
-//     next();
-//   });
-  
-//   app.use(
-//     bodyParser.json({
-//       type: [
-//         'application/json',
-//         'application/csp-report',
-//         'application/reports+json',
-//       ],
-//     })
-//   );
-//   app.use(express.static(path.join(__dirname)));
-  
-//   app.post('/__cspreport__', (req, res) => {
-//     console.log(req.body);
-//   });
+
 
 //middleware
 app.use(favicon(path.join(__dirname, 'public','favicon.ico')))
@@ -74,6 +50,7 @@ app.use('/api/deezer', deezer);
 app.get('/*',(req,res)=>{
     res.sendFile(__dirname +'/public/dist/musicdb-app-angular/index.html');
 });
+app.get('/cool', (req, res) =>{ res.send(cool())});
 
 
 app.use(notFound);
