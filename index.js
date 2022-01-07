@@ -13,20 +13,7 @@ const connectDB = require('./db/connect');
 
 const notFound = require('./middleware/not-found');
 const errorHandlerMiddleware= require('./middleware/error-handler');
-// var directives = {
-//     'default-src': [ "'self'" ],
-//     'base-uri': [ "'self'" ],
-//     'block-all-mixed-content': [],
-//     'font-src': [ "'self'", 'http:'],
-//     'frame-ancestors': [ "'self'" ],
-//     'img-src': [ "'self'"],
-//     'object-src': [ "'none'" ],
-//     'script-src': [ "'self'" ],
-//     'script-src-attr': [ "'none'" ],
-//     'style-src': [ "'self'", 'http:', "'unsafe-inline'" ],
-//     'script-src-elem':["'self'"],
-//     'upgrade-insecure-requests': ["'none'"]
-//   }
+
 
 const port = process.env.PORT || 5000;
 

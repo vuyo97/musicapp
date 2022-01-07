@@ -45,7 +45,7 @@ const login = asyncWrapper(async (req,res)=>{
  })
 
 const callback = asyncWrapper(async (req,res)=>{
-    res.sendFile(path.join(__dirname + 'public/src/assets/player/channel.html'));
+  res.sendFile(__dirname + 'public/src/assets/player/channel.html');
  })
 
 const search = asyncWrapper(async (req,res)=>{
@@ -62,6 +62,7 @@ const search = asyncWrapper(async (req,res)=>{
  
  
  })
+ 
 const getArtistAlbums = asyncWrapper(async (req,res)=>{
 
     const {id : artistID} = req.params;
