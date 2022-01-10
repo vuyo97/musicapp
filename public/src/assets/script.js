@@ -21,7 +21,7 @@ DZ.init({
         height : 70,
         onload : function(response){
             try{
-                 console.log('Player loaded!!!' + response);
+              console.log('Player loaded!!!' + response);
               DZ.player.playTracks([654870372], true)
             }catch(err){console.log(err)};
 }
