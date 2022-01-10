@@ -2,7 +2,7 @@
   "name": "express-demo",
   "version": "1.0.0",
   "description": "express-demo package",
-  "main": "index.js",
+  "main": "app.js",
   "dependencies": {
     "axios": "^0.24.0",
     "cool-ascii-faces": "^1.3.4",
@@ -16,7 +16,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js -o"
+    "start": "nodemon app.js -o"
   },
   "author": "vuyo",
   "license": "ISC"
