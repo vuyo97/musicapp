@@ -4,7 +4,8 @@ const express = require('express');
 const cool = require('cool-ascii-faces');
 const bodyParser = require('body-parser');
 const path = require('path');
-const contentSecurityPolicy  = require('helmet-csp');
+//const helmet=  require('helmet');
+//const contentSecurityPolicy  = require('helmet-csp');
 const app = express();
 
 var favicon = require('serve-favicon')
@@ -22,11 +23,36 @@ const port = process.env.PORT || 5000;
 //  app.use(contentSecurityPolicy ({
 //     reportOnly: false
 //  }));
- console.log(contentSecurityPolicy.getDefaultDirectives())
+// app.use(
+//     helmet()
+//   );
+//  app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
+// //  app.use(helmet({ crossOriginEmbedderPolicy: true }));
+// app.use(
+//     helmet.frameguard({
+//       action: "sameorigin",
+//     })
+//   );
+
+//   app.use(
+//     helmet.permittedCrossDomainPolicies({
+//       permittedPolicies: "all",
+//     })
+//   );
+ 
+
+  app.use((req, res, next) => {
+    res.setHeader("X-Frame-Options", "ALLOW-FROM  https://connect.deezer.com/");
+    next();
+  });
+  //app.use(helmet({ crossOriginOpenerPolicy: true }));
+
+
+//console.log(helmet.contentSecurityPolicy.getDefaultDirectives())
 
 
 //middleware
-app.use(cors())
+app.use(cors());
 app.use(favicon(path.join(__dirname,'favicon.ico')))
 app.use(express.static(path.join(__dirname,'/public/dist/musicdb-app-angular/')));
 //app.use(express.static("public"))
