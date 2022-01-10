@@ -28,15 +28,15 @@ const port = process.env.PORT || 5000;
 //middleware
 app.use(cors())
 app.use(favicon(path.join(__dirname,'favicon.ico')))
-// app.use(express.static(path.join(__dirname,'/public/dist/musicdb-app-angular/')));
-app.use(express.static("public"))
+app.use(express.static(path.join(__dirname,'/public/dist/musicdb-app-angular/')));
+//app.use(express.static("public"))
 app.use(express.json());
 
 //routes
 //app.use('/api/movies', movies);
 app.use('/api/deezer', deezer);
 app.get('/*',(req,res)=>{
-    res.sendFile('index.html');
+    res.sendFile(path.join(__dirname,'/public/dist/musicdb-app-angular/index.html'));
 });
 //app.get('/cool', (req, res) =>{ res.send(cool())});
 
