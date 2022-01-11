@@ -1,3 +1,12 @@
+function playSong(id){
+    DZ.player.playTracks(id);
+  }
+
+  function playPodcast(id){
+    DZ.player.playPodcast(id);
+  }
+
+
 // // DZ.init({
 // //     appId: '514702',
 // //     channelUrl: 'http://localhost:5000/api/deezer/callback',

@@ -9,6 +9,7 @@
   <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
   <!-- <meta http-equiv="Content-Security-Policy-Report-Only" content="default-src http:; report-uri /"> -->
   <script src="https://e-cdns-files.dzcdn.net/js/min/dz.js"></script>
+  <script src="https://e-cdns-files.dzcdn.net/js/min/dz.js"></script>
   <script src="https://www.google.com/recaptcha/api.js?render=d0d64b8f07eebc6372dc75bb656565f5"></script>
   <script src="https://www.google.com/recaptcha/api.js?render=6Ldq3gIeAAAAAHFpf5XtZkKVI9y_30ojRTNgcGMG"></script>
   <!-- <script src="https://www.google.com/recaptcha/api.js?render=6Ld16QIeAAAAAMJ0X5Jo8O6jcgIKyrWaahsnL33b"></script> -->
@@ -20,44 +21,85 @@
   <app-root></app-root>
   <div class="bar">
     <div id="player"></div>
-  <a class="control" ><img src="./assets/images/back2.png" class="controls"></a>
-  <a class="control" (click)='play()' onclick="DZ.ready()"><img src="./assets/images/play2.png" class="controls"></a>
-  <a class="control" ><img src="./assets/images/next2.png" class="controls"></a>
+  <a class="control" onclick="DZ.player.playAlbum(285723602)">Load album</a>
+  <a class="control" onclick="DZ.player.prev()"><img src="./assets/images/back2.png" class="controls"></a>
+  <a class="control" onclick="DZ.player.play()"><img src="./assets/images/play2.png" class="controls"></a>
+  <a class="control" onclick="DZ.player.pause()"><img src="./assets/images/pause.png" class="controls"></a>
+  <a class="control" onclick="DZ.player.next()"><img src="./assets/images/next2.png" class="controls"></a>
 </div>
 
 <script>
+let loginbtn = document.getElementById('loginbtn');
+function login(){
+DZ.login(function(response) {
+    if (response.authResponse) {
+      console.log('Welcome!  Fetching your information.... ');
+      DZ.api('/user/me', function(response) {
+      //  loginbtn.style.textContent = "logout"
+        DZ.player.playAlbum(285723602,true);
+        console.log(response)
+        console.log(localStorage);
+        console.log(sessionStorage);
+       // console.log(sessionStorage.getItem("name"));
+       // console.log(response)
+        
+      });
+    } else {
+      console.log('User cancelled login or did not fully authorize.');
+    }
+  }, {perms: 'basic_access,email'});
+}
 
-  // DZ.ready(function(sdk_options){
-  //     console.log('DZ SDK is ready', sdk_options);
-  // });
-  // window.dzAsyncInit = function() {
-  //   DZ.init({
+  window.dzAsyncInit = function() {
+    DZ.init({
+      appId  : '514702',
+      channelUrl : `https://deezer-node.herokuapp.com/callback`,
+      player : {
+           container: 'player',
+          // width : 1480,
+          // height : 60,
+          onload : function(response){
+              try{
+                console.log('Player loaded!!!' + JSON.stringify(response));
+                DZ.getLoginStatus();
+              //  DZ.player.playTracks([654870372], true)
+              }catch(err){console.log(err)};
+          }
+      }
+    });
+    };
+    (function() {
+    var e = document.createElement('script');
+    e.src = 'https://e-cdns-files.dzcdn.net/js/min/dz.js';
+    e.async = true;
+   // document.getElementById('dz-root').appendChild(e);
+   DZ.logout();
+    console.log("logged out, sdk init and ready");;
+    }());
+  
+    function playSong(id){
+      DZ.player.playTracks(id);
+    }
+
+    function playPodcast(id){
+      DZ.player.playPodcast(id);
+    }
+
+  // DZ.init({
   //     appId  : '514702',
   //     channelUrl : `https://deezer-node.herokuapp.com/callback`
-  //   });
-  //   };
-  //   (function() {
-  //   var e = document.createElement('script');
-  //   e.src = 'https://e-cdns-files.dzcdn.net/js/min/dz.js';
-  //   e.async = true;
-  //   document.getElementById('dz-root').appendChild(e);
-  //   }());
-  
-  // // DZ.init({
-  // //     appId  : '514702',
-  // //     channelUrl : `https://deezer-node.herokuapp.com/callback`
-  // // //     player : {
-  // // //         //container: 'player',
-  // // //         // width : 1680,
-  // // //         // height : 70,
-  // // //         onload : function(response){
-  // // //             try{
-  // // //               console.log('Player loaded!!!' + response);
-  // // //               DZ.player.playTracks([654870372], true)
-  // // //             }catch(err){console.log(err)};
-  // // // }
-  // // //     }
-  // // });
+  // //     player : {
+  // //         //container: 'player',
+  // //         // width : 1680,
+  // //         // height : 70,
+  // //         onload : function(response){
+  // //             try{
+  // //               console.log('Player loaded!!!' + response);
+  // //               DZ.player.playTracks([654870372], true)
+  // //             }catch(err){console.log(err)};
+  // // }
+  // //     }
+  // });
   
   // DZ.login(function(response) {
   //   if (response.authResponse) {
@@ -71,14 +113,14 @@
   //   }
   // }, {perms: 'basic_access,email'});
   
-  // DZ.getLoginStatus(function(response) {
-  //   if (response.authResponse) {
-  //     console.log("logged in and connected user" + response.authResponse);
-  //   } else {
-  //     console.log("no user session available"  + response.authResponse);
-  //     DZ.login();
-  //   }
-  // });
+  DZ.getLoginStatus(function(response) {
+    if (response.authResponse) {
+      console.log("logged in and connected user" + response.authResponse);
+    } else {
+      console.log("no user session available"  + response.authResponse);
+      DZ.login();
+    }
+  });
   </script>  
 </body>
 </html>

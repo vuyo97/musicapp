@@ -3,6 +3,8 @@ import { ApiDataService } from 'src/app/services/api-data.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Subject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+//  import {DZ} from '@types/deezer-sdk/index';
+// var DZ = require('@types/deezer-sdk');
 
 @Component({
   selector: 'app-channel',
@@ -32,6 +34,10 @@ export class ChannelComponent implements OnInit {
       this.channel = [this.content];
      // this.reloadData(this.channel);
     });
+   }
+
+   play(){
+    // DZ.player.playPodcast(this.content.id);
    }
    
 

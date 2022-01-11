@@ -28,12 +28,12 @@
             <table class="table">
               <tbody>
                 <tr *ngFor="let track of tracks[0].data.data | slice:0:5 let i=index" class="display-hover">
-                  <td > <a href="{{track.link}}" target="_blank">
+                  <td > <a onclick="playSong('{{track.id}}')">
                     <img src="../../../../assets/images/play.png" class="controls animate__animated animate__pulse">
                       {{i + 1}}
                   </a></td>
                   <td>{{track.title_short}}</td>
-                  <td><a href="{{track.link}}">Play</a></td>
+                  <td><a>Play</a></td>
                   <td><span *ngIf="track.explicit_lyrics" class="w3-badge w3-round w3-text-grey w3-white w3-border w3-tiny" style="padding:1px 5px 1px 5px">EXPLICIT</span>
                       <span *ngIf="!track.explicit_lyrics"> </span>
                   </td>                  
@@ -115,12 +115,12 @@
                     <td>Duration</td>
                   </tr>
                     <tr  *ngFor="let track of tracks[0].data.data  | slice:0:100 let b=index" class="display-hover">
-                      <td > <a href="{{track.link}}" target="_blank">
+                      <td > <button onclick="playSong('{{track.id}}')">
                         <img src="../../../../assets/images/play.png" class="controls animate__animated animate__pulse">
                           {{b + 1}}
-                      </a></td>
+                      </button></td>
                     <td>{{track.title_short}}</td>
-                    <td><a href="{{track.link}}">Play</a></td>
+                    <td><a onclick="playSong('{{track.id}}')">Play</a></td>
                     <td><span *ngIf="track.explicit_lyrics" class="w3-badge w3-round w3-text-grey w3-white w3-border w3-tiny" style="padding:1px 5px 1px 5px">EXPLICIT</span>
                      <span  *ngIf="!track.explicit_lyrics" style="padding:1px 5px 1px 5px"> </span></td>
                     <td>{{track.duration | duration}}</td>

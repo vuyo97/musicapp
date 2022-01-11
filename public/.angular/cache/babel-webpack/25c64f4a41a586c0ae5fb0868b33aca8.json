@@ -1,0 +1,1 @@
+{"ast":null,"code":"import { NativeModules } from 'react-native';\nconst {\n  Deezer\n} = NativeModules;\n\nDeezer.sayHello = callback => {\n  return Deezer.getModuleName(callback);\n};\n\nexport default Deezer;","map":null,"metadata":{},"sourceType":"module"}

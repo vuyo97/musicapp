@@ -13,6 +13,7 @@ import { TracksComponent } from './pages/tracks/tracks.component';
 import { ChannelComponent } from './pages/podcasts/channel/channel.component';
 import { AlbumComponent } from './pages/albums/album/album.component';
 
+
 const routes: Routes = [
   {path:'' , component: HomeComponent},
   {path:'browse' , component: BrowseComponent},
