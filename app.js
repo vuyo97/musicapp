@@ -41,10 +41,7 @@ const port = process.env.PORT || 5000;
 //   );
  
 
-  app.use((req, res, next) => {
-    res.setHeader("X-Frame-Options", "ALLOW-FROM  https://connect.deezer.com/");
-    next();
-  });
+  
   //app.use(helmet({ crossOriginOpenerPolicy: true }));
 
 
@@ -53,6 +50,20 @@ const port = process.env.PORT || 5000;
 
 //middleware
 app.use(cors());
+app.use((req, res, next) => {
+  res.setHeader("X-Frame-Options", "ALLOW-FROM  https://connect.deezer.com/");
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  next();
+});
+
+app.options("/callback", cors());
+app.get("/callback", cors(), (req, res) => {
+  console.info("channel call works");
+  res.sendFile(path.join(__dirname , 'channel.html'));
+});
+
+
+
 app.use(favicon(path.join(__dirname,'favicon.ico')))
 app.use(express.static(path.join(__dirname,'/public/dist/musicdb-app-angular/')));
 //app.use(express.static("public"))
