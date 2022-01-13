@@ -1,28 +1,22 @@
-<div class="w3-top">
-<div class="w3-bar w3-light-grey top-menu">
-    
-    <div class="w3-bar-item logo">Deezer</div>
-    <div class="nav-container">
-    <a routerLink="/" class="w3-bar-item " [ngClass]="{'active': true}">Home</a>
-    <a routerLink="/browse"  class="w3-bar-item">Browse</a>
-    <a routerLink="/charts/albums" class="w3-bar-item">Albums</a>
-    <a routerLink="/charts/podcasts" class="w3-bar-item">Podcasts</a>
-    <a routerLink="/charts/radio" class="w3-bar-item" >Radio</a>
-
-  <div class="differ active-red active-red-2 w3-col m2 w3-center" id="search-container">
+<nav class="w3-top">
+<ul class="top-menu">
+<div class="items">
+    <li class="logo"><a routerLink="/" >Deezer</a></li>
+    <li><a routerLink="/"  [ngClass]="{'active': true}">Home</a></li>
+    <li><a routerLink="/browse">Browse</a></li>
+    <li><a routerLink="/charts/albums">Albums</a></li>
+    <li><a routerLink="/charts/podcasts">Podcasts</a></li>
+    <li> <a routerLink="/charts/radio">Radio</a></li>
+    <li class="search-container">
       <app-search-bar></app-search-bar>
-  </div>
-
-  <div class="differ">
-    <a href="" class="w3-bar-item"> 
-      <div class="w3-col m6">
-      <img src="../../../assets/images/user.png" class="w3-circle user" />
-     </div>
-    </a>
-    <a  class="w3-bar-item  w3-right" id="loginbtn" onclick="login()">Login</a>
-    
-  </div> 
-  
+    </li>
+    <li>  
+      <a href="" style="padding: 0px 6px;"> 
+        <img src="{{user}}" class="w3-circle user" />
+      </a>
+      <span class="username">Vuyo</span>
+    </li>
+    <li style="padding: 0px 18px;"><a  class="w3-bar-item" id="loginbtn" onclick="login()">Login</a></li>
 </div>
-</div>
-</div>
+</ul>
+</nav>

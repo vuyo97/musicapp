@@ -1,35 +1,24 @@
 .top-menu{
-    height: 50px;
-    padding: 8px 0px 0px 8px;
+    height: auto;
+    padding: 8px 0px 0px 0px;
+    background-color: whitesmoke;
+    padding-bottom: 2px;
+}
+span.username {
+    font-size: 15px;
 }
 .logo{
     color:Red;
     font-size:large;
-    padding : 5px 0px;
+    padding : 0px 0px;
 }
 .user{
-    height: 100%;
-    width: 100%;
-    background-color: white;
-    margin-top: -21.5%;
-}
-.nav-container{
-    padding-left: 60px;
+    height: 35px;
+    background-color: black;
 }
 
 .artist-img{
     border-radius:50%
-}
-
-
-#search-container{
-    top:0;
-    width:40%;
-    right:0;
-    left:0;
-// background-color:black;
-    height:20px;
-    margin:0px 0px 20px 120px;
 }
 
 a{
@@ -47,3 +36,73 @@ a:hover {
 a:active {
     color:Red;
 }
+/*********/
+nav ul{
+    display: flex;
+    list-style-type: none;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+nav ul li.logo{
+    flex:1;
+    font-size:17px;
+    font-weight:700;
+}
+nav ul div.items{
+    padding: 0px 50px;
+    display: inline-flex;
+    width: 85%;
+    text-align: center;
+    justify-content: center;
+}
+nav ul div.items a{
+    text-decoration: none;
+    font-size: 16px;
+    padding:0 20px;
+    font-weight:600;
+}
+
+nav ul .search-container{
+    height:40px;
+    width: 40%;
+    padding: 0px 17px;
+}
+
+nav ul div.items li{
+    line-height: 35px;
+}
+
+/*********/
+
+@media screen and (max-width: 420px) {
+    nav ul div.items{
+        flex:4;
+        display: inline-table;
+    }
+
+    nav ul li.search-container{
+        margin: auto;
+    }
+
+}
+@media screen and (max-width: 1052px) {
+    nav {
+      float: none;
+      display: inline-table;
+      height: auto;
+    }
+
+    nav ul li.logo{
+        display:none
+    }
+
+    nav ul li span.username {
+        display:none
+    }
+
+    nav ul div.items{
+        flex:4;
+    }
+  }
