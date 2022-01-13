@@ -115,10 +115,10 @@
                     <td>Duration</td>
                   </tr>
                     <tr  *ngFor="let track of tracks[0].data.data  | slice:0:100 let b=index" class="display-hover">
-                      <td > <button onclick="playSong('{{track.id}}')">
+                      <td > <a onclick="playSong('{{track.id}}')">
                         <img src="../../../../assets/images/play.png" class="controls animate__animated animate__pulse">
                           {{b + 1}}
-                      </button></td>
+                      </a></td>
                     <td>{{track.title_short}}</td>
                     <td><a onclick="playSong('{{track.id}}')">Play</a></td>
                     <td><span *ngIf="track.explicit_lyrics" class="w3-badge w3-round w3-text-grey w3-white w3-border w3-tiny" style="padding:1px 5px 1px 5px">EXPLICIT</span>

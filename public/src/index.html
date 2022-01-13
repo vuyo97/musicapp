@@ -9,7 +9,6 @@
   <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
   <!-- <meta http-equiv="Content-Security-Policy-Report-Only" content="default-src http:; report-uri /"> -->
   <script src="https://e-cdns-files.dzcdn.net/js/min/dz.js"></script>
-  <script src="https://e-cdns-files.dzcdn.net/js/min/dz.js"></script>
   <script src="https://www.google.com/recaptcha/api.js?render=d0d64b8f07eebc6372dc75bb656565f5"></script>
   <script src="https://www.google.com/recaptcha/api.js?render=6Ldq3gIeAAAAAHFpf5XtZkKVI9y_30ojRTNgcGMG"></script>
   <!-- <script src="https://www.google.com/recaptcha/api.js?render=6Ld16QIeAAAAAMJ0X5Jo8O6jcgIKyrWaahsnL33b"></script> -->
@@ -52,7 +51,7 @@ DZ.login(function(response) {
   window.dzAsyncInit = function() {
     DZ.init({
       appId  : '514702',
-      channelUrl : `https://deezer-node.herokuapp.com/`,
+      channelUrl : `http://localhost:5000`,
       player : {
            container: 'player',
           // width : 1480,
