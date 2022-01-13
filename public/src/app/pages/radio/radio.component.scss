@@ -25,7 +25,7 @@ color:lightseagreen;
     display: grid;
     grid-gap: 10px;
     /* grid-template-columns: 10px; */
-    grid-template-rows: minmax(167px,13fr);
+    grid-template-rows: minmax(167px,10fr);
     grid-auto-flow: column;
     /* grid-auto-columns: calc(50% - var(--gutter) * 2); */
     // overflow-x: scroll;
@@ -71,4 +71,22 @@ color:lightseagreen;
     text-align: left;
     padding: 2px 0;
   
+}
+
+@media screen and (max-width: 500px) {
+    .horizontal-scroll{
+        display: inline-grid;
+        grid-gap: 7px;
+        grid-template-columns: 100px 100px 100px 100px 100px 100px 100px 100px 100px 100px;
+        /* grid-auto-flow: column; */
+        overflow-x: scroll;
+        /* scroll-snap-type: revert;*/
+    }
+
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        grid-gap: 20px;
+    }
+
 }

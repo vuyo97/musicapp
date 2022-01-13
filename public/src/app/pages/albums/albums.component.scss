@@ -78,3 +78,17 @@
     margin: auto 27px!important;
     cursor: pointer;
 }
+
+/**********************/
+@media screen and (max-width: 500px) {
+.album-card{
+    width: 70%;
+   // padding: 5px;
+  }
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-gap: 0px;
+}
+  }

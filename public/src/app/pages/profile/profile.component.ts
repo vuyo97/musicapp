@@ -4,7 +4,6 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { forkJoin, throwError ,observable } from 'rxjs';
 import { TabsComponent } from '../profile/tabs/tabs.component';
 import { TabComponent } from '../profile/tabs/tab.component';
-import * as DZ from '@types/deezer-sdk/index';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 

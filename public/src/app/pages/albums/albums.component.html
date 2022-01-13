@@ -2,7 +2,7 @@
   <a *ngIf="!isAlbumsPage" routerLink="/charts/albums" class="w3-text-grey"><h3>Top Albums</h3></a>
 <div class="w3-col m12 l12 w3-row mt-10 horizontal-scroll w3-animate-opacity" style="border-top:1px solid lightcyan"> 
     <div class="w3-center album-cards" *ngFor="let album of albums[0].data.data | slice:0:20 let i=index" >
-        <a routerLink="/album/{{album.id}}"> <img src="{{album.cover_medium}}" class="br-5 w3-hover-opacity"/>
+        <a routerLink="/album/{{album.id}}"> <img src="{{album.cover_medium}}" class="br-5 w3-hover-opacity "/>
           <div class="w3-display-middle w3-display-hover w3-large">
             <small>
             <div class="w3-text-black description-big">  
@@ -27,7 +27,7 @@
   <h3 *ngIf="isAlbumsPage" class="w3-text-grey"> Top Albums</h3>
   <div class="w3-col m12 grid-container mb-2">
     <div class="w3-center album-cards w3-animate-opacity" *ngFor="let album of albums[0].data.data | slice:0:30 let a=index" >
-      <a routerLink="/album/{{album.id}}"><img src="{{album.cover_medium}}" class="br-5 w3-hover-opacity"/>
+      <a routerLink="/album/{{album.id}}"><img src="{{album.cover_medium}}" class="br-5 w3-hover-opacity album-card"/>
         <div class="w3-display-middle w3-display-hover w3-large">
           <small>
           <div class="w3-text-white w3-black description-big"> 

@@ -1,6 +1,6 @@
 <div [hidden]="isPodPage" class="w3-container">
 <a *ngIf="!isPodPage" routerLink="/charts/podcasts" class="w3-text-grey"><h3>Top Podcasts</h3></a>
-<div class="w3-col m12 l12 w3-row mt-10 horizontal-scroll w3-animate-opacity mt-3">
+<div class="w3-col m12 l12 mt-10 horizontal-scroll w3-animate-opacity mt-3">
   <div class="w3-display-container w3-col" *ngFor="let pod of podcasts[0].data.data | slice:0:10 let o=index" >
         <a href="{{pod.link}}" target="_blank">
         <img src="{{pod.picture}}" alt="podcasts-cover" style="width:100%" class="w3-circle w3-hover-opacity">
@@ -22,7 +22,7 @@
 <div *ngIf="isPodPage" class="w3-col grid-container">
   <div class="w3-display-container w3-animate-opacity w3-col m9"  *ngFor="let pod of podcasts[0].data.data | slice:0:30 let p=index">
    <a (click)='getLink($event)'> 
-     <img src="{{pod.picture_medium}}" alt="Avatar"  style="width:100%" class="w3-circle w3-hover-opacity">
+     <img src="{{pod.picture_medium}}" alt="podcasts-cover"  style="width:100%" class="w3-circle w3-hover-opacity">
      <div class="w3-display-middle-big w3-display-hover w3-large">
       <small>
       <div class="w3-text-white w3-black tooltip-big" id="{{pod.id}}">  

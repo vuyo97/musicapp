@@ -9,6 +9,7 @@
   <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
   <!-- <meta http-equiv="Content-Security-Policy-Report-Only" content="default-src http:; report-uri /"> -->
   <script src="https://e-cdns-files.dzcdn.net/js/min/dz.js"></script>
+  <script src="public/src/assets/script.js"></script>
   <script src="https://www.google.com/recaptcha/api.js?render=d0d64b8f07eebc6372dc75bb656565f5"></script>
   <script src="https://www.google.com/recaptcha/api.js?render=6Ldq3gIeAAAAAHFpf5XtZkKVI9y_30ojRTNgcGMG"></script>
   <!-- <script src="https://www.google.com/recaptcha/api.js?render=6Ld16QIeAAAAAMJ0X5Jo8O6jcgIKyrWaahsnL33b"></script> -->
@@ -29,59 +30,13 @@
 </div>
 
 <script>
-var loginbtn = document.getElementById('loginbtn');
-function login(){
-DZ.login(function(response) {
-    if (response.authResponse) {
-      console.log('Welcome!  Fetching your information.... ');
-      DZ.api('/user/me', function(response) {
-      //  loginbtn.value = "logout"
-        DZ.player.playAlbum(285723602,true);
-        console.log(response)
-        localStorage.setItem('userObj', JSON.stringify(response))
-        console.log(localStorage);
-        console.log(localStorage.userObj);
-      });
-    } else {
-      console.log('User cancelled login or did not fully authorize.');
-    }
-  }, {perms: 'basic_access,email'});
-}
+    // function playSong(id){
+    //   DZ.player.playTracks(id);
+    // }
 
-  window.dzAsyncInit = function() {
-    DZ.init({
-      appId  : '514702',
-      channelUrl : `http://localhost:5000`,
-      player : {
-           container: 'player',
-          // width : 1480,
-          // height : 60,
-          onload : function(response){
-              try{
-                console.log('Player loaded!!!' + JSON.stringify(response));
-                DZ.getLoginStatus();
-              //  DZ.player.playTracks([654870372], true)
-              }catch(err){console.log(err)};
-          }
-      }
-    });
-    };
-    (function() {
-    var e = document.createElement('script');
-    e.src = 'https://e-cdns-files.dzcdn.net/js/min/dz.js';
-    e.async = true;
-   // document.getElementById('dz-root').appendChild(e);
-   DZ.logout();
-    console.log("logged out, sdk init and ready");;
-    }());
-  
-    function playSong(id){
-      DZ.player.playTracks(id);
-    }
-
-    function playPodcast(id){
-      DZ.player.playPodcast(id);
-    }
+    // function playPodcast(id){
+    //   DZ.player.playPodcast(id);
+    // }
 
   // DZ.init({
   //     appId  : '514702',
@@ -111,14 +66,6 @@ DZ.login(function(response) {
   //   }
   // }, {perms: 'basic_access,email'});
   
-  DZ.getLoginStatus(function(response) {
-    if (response.authResponse) {
-      console.log("logged in and connected user" + response.authResponse);
-    } else {
-      console.log("no user session available"  + response.authResponse);
-      DZ.login();
-    }
-  });
   </script>  
 </body>
 </html>

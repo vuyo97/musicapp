@@ -12,6 +12,12 @@ span.username {
     font-size:large;
     padding : 0px 0px;
 }
+.rsLogo{
+    color:Red;
+    font-size:large;
+    padding : 0px 0px;
+    display: none;
+}
 .user{
     height: 35px;
     background-color: black;
@@ -62,6 +68,7 @@ nav ul div.items a{
     font-size: 16px;
     padding:0 20px;
     font-weight:600;
+    clear: right;
 }
 
 nav ul .search-container{
@@ -74,16 +81,53 @@ nav ul div.items li{
     line-height: 35px;
 }
 
+label {
+    margin: 0px 0px 7px 10px;
+    font-size: 24px;
+    line-height: auto;
+    display: none;
+    width: 26px;
+    /* float: right; */
+    left: 0;
+}
+#toggle {
+    display: none;
+}
+
 /*********/
 
-@media screen and (max-width: 420px) {
-    nav ul div.items{
-        flex:4;
-        display: inline-table;
-    }
+@media screen and (max-width: 500px) {
 
+    .rsLogo{
+        position: fixed;
+        display: inline-flex;
+        margin: 5px 135px;
+    }
     nav ul li.search-container{
         margin: auto;
+    }
+
+    label {
+        display: inline-block;
+        cursor: pointer;
+        height: 30px;
+        background-color: inherit;
+        width: 100%;
+    }
+    nav ul div.items{
+        text-align: center;
+        width: 100%;
+        display: none;
+    }
+    .items a{
+        display: block;
+        //border-bottom: 1px solid #EAEAEB;
+        margin: 0;
+    }
+   
+    #toggle:checked + .items {
+        transition: ease-in 0.5s;
+        display: block;
     }
 
 }

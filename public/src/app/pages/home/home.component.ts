@@ -16,6 +16,7 @@ export class HomeComponent implements OnInit {
   isTracksPage = false;
   
   ngOnInit(): void {
+    console.log(localStorage);
   }
 
   // ngAfterContentInit(){

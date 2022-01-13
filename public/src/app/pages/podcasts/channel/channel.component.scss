@@ -1,3 +1,11 @@
 tr:hover {
     background-color: aliceblue;
 }
+
+/*************************/
+@media screen and (max-width: 500px) {
+    .main-container[_ngcontent-ise-c18] {
+        justify-content: center;
+        text-align: center;
+    }
+    }

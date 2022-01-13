@@ -23,3 +23,11 @@
     //padding: 10px;
 }
 
+/*************************/
+@media screen and (max-width: 500px) {
+.grid-container[_ngcontent-ise-c18] {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 3px;
+}
+}

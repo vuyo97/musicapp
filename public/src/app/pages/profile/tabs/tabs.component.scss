@@ -5,7 +5,7 @@ cursor: pointer;
 }
 
 .pane{
-padding: 1em;
+padding: 0em;
 }
 .nav-tabs {
     border-bottom: 2px solid #DEE3E7;
@@ -13,4 +13,10 @@ padding: 1em;
 }
 .tab-title{
     padding-inline-end: 25px;
+}
+
+@media screen and (max-width: 500px) {
+    .pane{
+        padding: 0em;
+        }
 }

@@ -1,6 +1,6 @@
 <div [hidden]="isRadioPage" class="w3-container">
 <a href="/charts/radio" class="w3-text-grey"><h3>Radio</h3></a> 
-<div class="w3-col m12 l12 w3-row mt-10 horizontal-scroll w3-animate-opacity">
+<div class="w3-col m12 l12 mt-10 horizontal-scroll w3-animate-opacity">
   
     <div class="w3-display-container w3-hover-opacity w3-col" *ngFor="let rad of radio[0].data.data | slice:0:10 let a=index" >
     <img src="{{rad.picture}}" alt="radio-cover" style="width:100%" class="w3-circle">

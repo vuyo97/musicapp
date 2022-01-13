@@ -22,9 +22,9 @@
     <!--Discography-->
         <my-tab class="tab-headers" [tabTitle]="'Discography'">
           <div class="w3-row">
-        <div class="w3-container artist-tab  w3-animate-opacity w3-col m7 l9 " id="discography">
+        <div class="w3-animate-opacity w3-col m7 l9 " id="discography">
            <h3>Top Tracks</h3>
-          <div class="w3-card-4 br w3-col m12 card-container">
+          <div class="w3-card-4 br w3-col m12 card-container top-tracks ">
             <table class="table">
               <tbody>
                 <tr *ngFor="let track of tracks[0].data.data | slice:0:5 let i=index" class="display-hover">
@@ -33,7 +33,7 @@
                       {{i + 1}}
                   </a></td>
                   <td>{{track.title_short}}</td>
-                  <td><a>Play</a></td>
+                  <td class="play-tab"><a>Play</a></td>
                   <td><span *ngIf="track.explicit_lyrics" class="w3-badge w3-round w3-text-grey w3-white w3-border w3-tiny" style="padding:1px 5px 1px 5px">EXPLICIT</span>
                       <span *ngIf="!track.explicit_lyrics"> </span>
                   </td>                  
@@ -49,18 +49,19 @@
         </div>
     
      
-        <div class="w3-col w3-container m5 l3">  
+        <div class="w3-col w3-container m5 l3 playlist-container">  
         <h3>Playlists</h3>
-          <div class="w3-col m12 card-container">
+          <div class="w3-col m12 card-container playlist-subcontainer">
            <li class="list-items" *ngFor="let playlist of playlists[0].data.data | slice:0:3 let i=index">
              <div class="w3-container w3-row">
               <div class="w3-col m4">
-                <a href="{{playlist.link}}"><img src="{{playlist.picture}}" class="w3-circle" style="width: 80%;padding-top: 5px;"/></a>
+                <a href="{{playlist.link}}"><img src="{{playlist.picture}}" class="w3-circle playlist-thumb"/>
                 <div class="w3-display-middle w3-display-hover w3-medium">
                   <p class="w3-text-black"><img src="./assets/images/play2.png" class="controls"></p>
                 </div>
+                </a>
               </div>
-              <div class="w3-col m8">
+              <div class="w3-col m8 playlist-title">
                 <p>{{ (playlist.title.length>40)? (playlist.title  | slice:0:40)+'...':(playlist.title)}}
                  <small> <span><p>by {{playlist.user.name}}</p></span></small>
                 </p>
@@ -75,7 +76,7 @@
           <div class="w3-container w3-col m12 l12 w3-row mt-10" style="border-top:1px solid lightcyan">
             <h3>Albums</h3>
             <div class="w3-col m2 w3-center w3-hover-opacity mt-2 album-card" *ngFor="let album of albums[0].data.data | slice:0:5 let i=index" >
-              <a routerLink="/album/{{album.id}}"><img src="{{album.cover_medium}}" class="br-5" style="width:100%"/></a>
+              <a routerLink="/album/{{album.id}}"><img src="{{album.cover_medium}}" class="br-5 album-thumb"/></a>
                 <div class="w3-container">
                 <span><small> <h4 class="">{{album.title}}</h4>
                 <p class="title">Released on {{album.release_date}}</p>
@@ -88,7 +89,7 @@
           <div class="w3-container w3-col m12 l12 w3-row mt-10" style="border-top:1px solid lightcyan">
             <h3>Related Artists</h3>
             <div class="w3-col m2 w3-center w3-hover-opacity mr-10" *ngFor="let rartist of related[0].data.data  | slice:0:12 let b=index">
-              <a routerLink="/profile/{{rartist.id}}"> <img src="{{rartist.picture_medium}}" class="w3-circle related-card" style="width:90%"/></a>
+              <a routerLink="/profile/{{rartist.id}}"> <img src="{{rartist.picture_medium}}" class="w3-circle related-card"/></a>
               <div class="w3-display-middle w3-display-hover w3-large">
                <p class="">{{rartist.name}}</p>
               </div>
@@ -115,12 +116,12 @@
                     <td>Duration</td>
                   </tr>
                     <tr  *ngFor="let track of tracks[0].data.data  | slice:0:100 let b=index" class="display-hover">
-                      <td > <a onclick="playSong('{{track.id}}')">
+                      <td > <a (click)="playSong('{{track.id}}')">
                         <img src="../../../../assets/images/play.png" class="controls animate__animated animate__pulse">
                           {{b + 1}}
                       </a></td>
                     <td>{{track.title_short}}</td>
-                    <td><a onclick="playSong('{{track.id}}')">Play</a></td>
+                    <td class="play-tab"><a onclick="playSong('{{track.id}}')">Play</a></td>
                     <td><span *ngIf="track.explicit_lyrics" class="w3-badge w3-round w3-text-grey w3-white w3-border w3-tiny" style="padding:1px 5px 1px 5px">EXPLICIT</span>
                      <span  *ngIf="!track.explicit_lyrics" style="padding:1px 5px 1px 5px"> </span></td>
                     <td>{{track.duration | duration}}</td>
