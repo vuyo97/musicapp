@@ -15,7 +15,7 @@
                 &nbsp;
                 <div class="w3-row m6 l6" style="display:flex">
                   <div class="w3-col m4 l4">
-                    <a (click)="DZ.player.playAlbum('{{album.data.id}}')"><input type="button" class="w3-btn w3-cyan w3-text-white w3-round-xxlarge" value="Listen to album"></a>&nbsp;
+                    <a (click)="playAlbum('{{album.data.id}}')"><input type="button" class="w3-btn w3-cyan w3-text-white w3-round-xxlarge" value="Listen to album"></a>&nbsp;
                     <a href="{{album.data.share}}"><input type="button" class="w3-btn w3-cyan w3-text-white w3-round-xxlarge" value="Share"></a>
                   </div>
                 </div>
@@ -36,10 +36,11 @@
                   <td>Duration</td>
                 </tr>
                   <tr  *ngFor="let track of tracks[0] | slice:0:30 let b=index" class="display-hover">
-                    <td > <a onclick="DZ.player.playTracks('{{track.id}}')">
-                      <img src="../../../../assets/images/play.png" class="controls animate__animated animate__pulse">
+                  <td > 
+                      <a (click)="playSong($event)">
+                      <img id="{{track.id}}" src="../../../../assets/images/play.png" class="controls animate__animated animate__pulse">
                         {{b + 1}}
-                    </a></td>
+                      </a></td>
                   <td>{{track.title_short}}</td>
                   
                   <td><a href="{{track.link}}">listen</a></td>

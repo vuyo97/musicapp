@@ -40,7 +40,7 @@ export class ProfileComponent implements OnInit {
     });
   }
 
-  reloadData(artist:any) {
+    reloadData(artist:any) {
     forkJoin(
       // as of RxJS 6.5+ we can use a dictionary of sources
       {
@@ -51,6 +51,7 @@ export class ProfileComponent implements OnInit {
          }),
         tracks: this.apiDataService.getArtistTracks(artist).subscribe((artistTracks)=>{
           this.tracks = [artistTracks];
+          this.tracks = this.tracks[0].data.data;
           //console.log(' Tracks : '+ JSON.stringify(this.tracks));
          }),
         albums: this.apiDataService.getArtistAlbums(artist).subscribe((artistsAlbums)=>{
@@ -63,6 +64,7 @@ export class ProfileComponent implements OnInit {
         }),
         playlists: this.apiDataService.getArtistPlaylists(artist).subscribe((artistsPlaylists)=>{
          this.playlists = [artistsPlaylists];
+         this.playlists = this.playlists[0].data.data;
         //  console.log(' Albums : '+ JSON.stringify(this.albums));
         }),
         radio: this.apiDataService.getArtistPlaylists(artist).subscribe((artistsRadio)=>{
@@ -81,4 +83,31 @@ export class ProfileComponent implements OnInit {
 
     }
 
+    playSong(event : any){
+      var idAttr = event.srcElement.attributes.id;
+      var trackIndex = idAttr.nodeValue;
+      
+      console.log("Play Song : " + trackIndex);
+      let trackArray = [];
+      let album = this.tracks.map( (arr: { id: any; })=> arr.id);
+      trackArray = [trackIndex];
+      let trackList = trackArray.concat(album);
+     // console.log(trackArray);
+    //play selected song and add rest of the album
+      DZ.player.playTracks(trackList);
+  
+      //add rest of the album to queue
+      //  DZ.player.addToQueue(album);
+     
+    }
+
+    playPlaylist(event:any){
+      var idAttr = event.srcElement.attributes.id;
+      var playlistIndex = idAttr.nodeValue;
+
+      console.log("Play Playlist : " + playlistIndex);
+      DZ.player.playPlaylist(playlistIndex);
+    }
+
+   
 }

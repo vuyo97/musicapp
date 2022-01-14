@@ -1,8 +1,8 @@
 <div [hidden]="isTracksPage" class="w3-container">
     <a *ngIf="!isTracksPage" routerLink="/charts/tracks" class="w3-text-grey"><h3>Top Tracks</h3></a>
   <div class="w3-col m12 l12 w3-row mt-10 horizontal-scroll w3-animate-opacity" style="border-top:1px solid lightcyan"> 
-      <div class="w3-center track-cards" *ngFor="let track of tracklist[0].data.data | slice:0:20 let i=index" >
-          <a href="{{track.link}}" target="_blank"> <img src="{{track.album.cover_medium}}" class="br-5 w3-hover-opacity"/>
+      <div class="w3-center track-cards" *ngFor="let track of tracklist | slice:0:20 let i=index" >
+          <a (click)="playTrack($event)"> <img id={{track.id}} src="{{track.album.cover_medium}}" class="br-5 w3-hover-opacity"/>
             <!-- <div class="w3-display-middle w3-display-hover w3-large">
               <small>
               <div class="w3-text-black description-big">  
@@ -58,10 +58,10 @@
                 <td></td>
                 <td>Duration</td>
               </tr>
-                <tr  *ngFor="let track of tracklist[0].data.data | slice:0:30 let b=index">
+                <tr  *ngFor="let track of tracklist | slice:0:30 let b=index">
                 <td >{{b + 1}}</td>
                 <td>{{track.title_short}} by <b><a routerLink="/profile/{{track.artist.id}}">{{track.artist.name}}</a></b></td>
-                <td> <a href="{{track.link}}" target="_blank"> <img src="{{track.album.cover_medium}}" class="br-5 w3-hover-opacity"/>
+                <td> <a (click)="playTrack($event)"> <img id={{track.id}} src="{{track.album.cover_medium}}" class="br-5 w3-hover-opacity"/>
                     <div class="w3-display-middle w3-display-hover w3-large">
                       <small>
                       <div class="">  
@@ -70,7 +70,7 @@
                       </small>
                       </div>
                   </a></td>
-                <td><a href="{{track.link}}">listen</a></td>
+                <td><a (click)="playTrack($event)" id={{track.id}}>listen</a></td>
                 <td><span *ngIf="track.explicit_lyrics" class="w3-badge w3-round w3-text-grey w3-white w3-border w3-tiny" style="padding:1px 5px 1px 5px">EXPLICIT</span>
                  <span  *ngIf="!track.explicit_lyrics"> </span></td>
                 <td>{{track.duration | duration}}</td>

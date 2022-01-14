@@ -11,6 +11,7 @@ import 'rxjs-compat/add/operator/map'
 })
 export class RadioComponent implements OnInit {
   public radio : any = [];
+  id:any;
   constructor(private apiDataService: ApiDataService) { }
 
   imageSrc = '../../../assets/images/audio.png';  
@@ -22,7 +23,14 @@ export class RadioComponent implements OnInit {
       console.log(this.radio);
      })
   }
+  
+  playRadio(event:any){
+    var idAttr = event.srcElement.attributes.id;
+    var radioIndex = idAttr.nodeValue;
 
+    console.log("Play Radio " + radioIndex);
+    DZ.player.playRadio(radioIndex);
+  }
   
 
 }

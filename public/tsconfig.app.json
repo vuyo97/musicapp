@@ -3,7 +3,7 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "./out-tsc/app",
-    "types": ["jquery","node"]
+    "types": ["jquery","node","deezer-sdk"]
   },
   "files": [
     "src/main.ts",

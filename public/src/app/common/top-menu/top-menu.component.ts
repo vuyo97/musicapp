@@ -13,7 +13,7 @@ export class TopMenuComponent implements OnInit {
   user='../../../assets/images/user.png';
 
   ngOnInit(): void {
-    console.log(localStorage.userObj);
+  //  console.log(localStorage.userObj);
   }
   
   

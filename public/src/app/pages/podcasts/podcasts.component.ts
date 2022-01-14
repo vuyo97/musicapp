@@ -33,6 +33,7 @@ export class PodcastsComponent implements OnInit {
   ngOnInit() :void{
      this.apiDataService.getPodcasts().subscribe((podcastsData) =>{
       this.podcasts = [podcastsData];
+      this.podcasts = this.podcasts[0].data.data;
       this.channels=this.podcasts[0].data;
       console.log(this.podcasts);
      })
@@ -46,14 +47,15 @@ export class PodcastsComponent implements OnInit {
     }
   }
 
-  getLink(event :any){
+  getToPodcast(event :any){
     var idAttr = event.srcElement.attributes.id;
     var value = idAttr.nodeValue;
     console.log(value)
+    console.log(this.podcasts);
 
   //  this.router.navigateByUrl('/podcast/channel', { state: { channel: this.channel } });
    
-   this.podcasts[0].data.data.forEach((element:any) => {
+   this.podcasts.forEach((element:any) => {
     if(element.id == value){
     console.log(element)
     this.channel=element; 
@@ -62,7 +64,7 @@ export class PodcastsComponent implements OnInit {
 
     let navigationExtras: NavigationExtras = {
       queryParams: {
-          "channel": btoa(JSON.stringify(this.channel))
+          "channel": btoa(unescape(JSON.stringify(this.channel)))
       }
     };
 

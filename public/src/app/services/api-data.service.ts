@@ -14,6 +14,7 @@ export class ApiDataService {
   searchName : any;
   searchid : any;
   constructor(private http: HttpClient,private readonly route: ActivatedRoute,private router:Router) {
+    this.toptracks = [];
   }
 
    //Gets indivdual artist by name from API search
@@ -163,6 +164,7 @@ export class ApiDataService {
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
       return this.channelData;
   }
+
     getChartAlbums(){
       return this.http.get('/api/deezer/charts/albums').map(albums => {
       return albums;

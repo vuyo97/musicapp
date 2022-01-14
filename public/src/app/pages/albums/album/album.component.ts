@@ -34,5 +34,27 @@ export class AlbumComponent implements OnInit {
      })
 
   }
+  playAlbum(){
+    console.log("Play Album"+ this.id);
+    DZ.player.playAlbum(this.id);
+  }
+
+  playSong(event : any){
+    var idAttr = event.srcElement.attributes.id;
+    var trackIndex = idAttr.nodeValue;
+    
+    console.log("Play Song : " + trackIndex);
+    let trackArray = [];
+    let album = this.tracks[0].map( (arr: { id: any; })=> arr.id);
+    trackArray = [trackIndex];
+    let trackList = trackArray.concat(album);
+   // console.log(trackArray);
+  //play selected song and add rest of the album
+    DZ.player.playTracks(trackList);
+
+    //add rest of the album to queue
+    //  DZ.player.addToQueue(album);
+   
+  }
 
 }
