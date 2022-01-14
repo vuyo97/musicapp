@@ -30,7 +30,7 @@ window.dzAsyncInit = function() {
         console.log('Welcome!  Fetching your information.... ');
         DZ.api('/user/me', function(response) {
         //  loginbtn.value = "logout"
-          DZ.player.playAlbum(285723602,true);
+         // DZ.player.playAlbum(285723602,true);
           console.log(response);
           localStorage.setItem('userObj', JSON.stringify(response))
           console.log(JSON.parse(localStorage.userObj));
