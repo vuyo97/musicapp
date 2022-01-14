@@ -1,7 +1,7 @@
 window.dzAsyncInit = function() {
   DZ.init({
     appId  : '514702',
-    channelUrl : `http://localhost:5000`,
+    channelUrl : `https://deezer-node.herokuapp.com`,
     player : {
          container: 'player',
         onload : function(response){
