@@ -1,7 +1,7 @@
 window.dzAsyncInit = function() {
   DZ.init({
     appId  : '514702',
-    channelUrl : `https://deezer-node.herokuapp.com`,
+    channelUrl : `https://deezer-node.herokuapp.com/callback`,
     player : {
          container: 'player',
         onload : function(response){
