@@ -10,7 +10,7 @@
             
             <p><span class="w3-grey w3-text-white w3-small br-5" style="padding:3px">{{art.data.type}}</span></p>
             &nbsp;
-            <p class="title"><input type="button" (click)="mix()" class="w3-btn w3-cyan w3-text-white w3-round-xxlarge" value="Mix"></p>
+            <p class="title"><input type="button" (click)="playMix()" class="w3-btn w3-cyan w3-text-white w3-round-xxlarge" value="Mix"></p>
          </div>
     </div>
 </div>
@@ -142,7 +142,7 @@
           <div class="w3-container artist-tab w3-animate-opacity w3-col m12 l12" id="Playlists">
             <div class="w3-col m12 grid-container">
               <div class="w3-center w3-hover-opacity playlist-cards br-5" *ngFor="let playlist of playlists | slice:0:30 let a=index" >
-                <a (click)="playPlaylist($event)"> <img id={{playlist.id}} src="{{playlist.picture_medium}}"/>
+                <a (click)="playPlaylist($event)"> <img id={{playlist.id}} src="{{playlist.picture_medium}}" class="plyst-card"/>
                   <div class="w3-display-middle w3-display-hover w3-medium">
                     <p class="w3-text-black">{{playlist.title}}</p>
                   </div>
@@ -165,7 +165,7 @@
           <div class="w3-container w3-animate-opacity w3-col m12 l12 " id="Albums">
             <div class="w3-col m12 grid-container">
               <div class="w3-center w3-hover-opacity playlist-cards" *ngFor="let album of albums[0].data.data | slice:0:100 let a=index" >
-                <a routerLink="/album/{{album.id}}"> <img src="{{album.cover_medium}}" class="br-5"/>
+                <a routerLink="/album/{{album.id}}"> <img src="{{album.cover_medium}}" class="br-5 albm-card"/>
                   <div class="w3-display-middle w3-display-hover w3-medium">
                     <p class="w3-text-black">{{album.title}}</p>
                   </div>
@@ -197,7 +197,7 @@
               <div  class="w3-col m12 w3-row ">
                 <!-- <div class="w3-display-container  col-md-12"> -->
                    <div class="w3-col m2 w3-center w3-hover-opacity mr-10" *ngFor="let rartist of related[0].data.data  | slice:0:30 let b=index">
-                    <a routerLink="/profile/{{rartist.id}}"> <img src="{{rartist.picture_medium}}" class="w3-circle related-card" style="width:90%"/></a>
+                    <a routerLink="/profile/{{rartist.id}}"> <img src="{{rartist.picture_medium}}" class="w3-circle related-card"/></a>
                     <div class="w3-display-middle w3-display-hover w3-large">
                      <p class="">{{rartist.name}}</p>
                     </div>

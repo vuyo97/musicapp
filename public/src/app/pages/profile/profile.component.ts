@@ -109,5 +109,13 @@ export class ProfileComponent implements OnInit {
       DZ.player.playPlaylist(playlistIndex);
     }
 
+    playMix(){
+      console.log("Mix");
+      let trackArray = this.tracks.map( (arr: { id: any; })=> arr.id)
+      console.log(trackArray);
+      DZ.player.playTracks(trackArray);
+      DZ.player.setShuffle(true);
+    }
+
    
 }

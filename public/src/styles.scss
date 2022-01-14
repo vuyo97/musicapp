@@ -53,6 +53,10 @@ div#player {
   box-shadow: 0 0 10px #9ce9e9;
   padding: 0px;
 }
+.cs-player{
+  margin: auto;
+}
+
 .control :hover {
     opacity: 0.5;
 }
@@ -90,3 +94,16 @@ div#player {
     width: 100%;
   }
   }
+
+  /**********************/
+@media screen and (max-width: 500px) {
+  .cs-player{
+      margin: auto;
+      display: none;
+     // padding: 5px;
+    }
+  
+   
+  
+  
+    }

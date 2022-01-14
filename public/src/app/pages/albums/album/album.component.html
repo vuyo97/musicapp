@@ -43,7 +43,7 @@
                       </a></td>
                   <td>{{track.title_short}}</td>
                   
-                  <td><a href="{{track.link}}">listen</a></td>
+                  <td><a class="play-tab">listen</a></td>
                   <td><span *ngIf="track.explicit_lyrics" class="w3-badge w3-round w3-text-grey w3-white w3-border w3-tiny" style="padding:1px 5px 1px 5px">EXPLICIT</span>
                    <span  *ngIf="!track.explicit_lyrics"> </span></td>
                   <td>{{track.duration | duration}}</td>

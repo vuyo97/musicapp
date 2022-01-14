@@ -32,10 +32,15 @@ export class HomeComponent implements OnInit {
       // if user is null
       if(this.user.name == undefined || this.user.name ==  null || this.user.name.length == 0) {
         // go for login
-        console.log("Please Log in!");
+        alert("Please log in!");
       }else {
         // redirect to home through navigateByURL()
-        console.log("Welcome back : "+ localStorage.userObj.name );
+        this.user= localStorage.getItem('userObj');
+        this.user = JSON.parse(this.user);
+        this.user.name = this.user.name[0].toUpperCase() + this.user.name.substring(1);
+        alert("Welcome back " + this.user.name);
+        console.log(this.user.name);
+       //isLoggedin = true;
         
       }
   }

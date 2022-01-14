@@ -142,6 +142,10 @@ border-bottom:2px solid red;
     // text-align: center;
     // }
 
+    .tab-title{
+        padding-inline-end: 14px;
+    }
+
     .album-card{
         margin-left: 0px;
         cursor: pointer;
@@ -149,10 +153,15 @@ border-bottom:2px solid red;
     .album-thumb {
         width: 60%;
     }
+    .albm-card {
+        width: 55%;
+    }
     .related-card{
         width: 60%;
     }
-
+    .plyst-card{
+        width: 60%;
+    }
     .playlist-thumb {
         width: 50%;
         cursor: pointer;
@@ -181,6 +190,10 @@ border-bottom:2px solid red;
     .card-container{
         padding: 20px;
         font-size:small;
+    }
+
+    .grid-container{
+        display:inherit;
     }
 
   }

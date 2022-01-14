@@ -37,3 +37,21 @@ tr:hover {
 .card-container{
       padding:20px;
 }
+@media screen and (max-width: 500px) {
+  .alb-card{
+    padding-bottom: 10px;
+    text-align: center;
+    font-size: smaller;
+}
+  .card-container {
+      padding: 0px;
+  }
+
+  .w3-container, .w3-panel {
+    padding: 3px 11px;
+}
+  
+  .play-tab{
+      display:none;
+  }
+    }

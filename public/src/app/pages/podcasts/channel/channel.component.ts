@@ -23,12 +23,10 @@ export class ChannelComponent implements OnInit {
   }
  
    ngOnInit(): void {
-   // console.log(history.state);
-    ///this.channel=history.state;
     this.route.queryParamMap.subscribe((queryParams) => {
   
       this.content = queryParams.get("channel");
-      console.log('channel page - '+JSON.stringify(atob(this.content)));
+     // console.log('channel page - '+JSON.stringify(atob(this.content)));
       this.content = atob(this.content);
       this.content = JSON.parse(this.content);
       console.log(this.content);
