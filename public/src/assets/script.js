@@ -1,7 +1,9 @@
+$('#toggle input').prop( "checked" ,false);
+
 window.dzAsyncInit = function() {
   DZ.init({
     appId  : '514702',
-    channelUrl : `https://deezer-node.herokuapp.com/callback`,
+    channelUrl : `https://deezer-node.herokuapp.com`,
     player : {
          container: 'player',
         onload : function(response){

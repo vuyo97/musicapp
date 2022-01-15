@@ -66,7 +66,7 @@ nav ul div.items{
 nav ul div.items a{
     text-decoration: none;
     font-size: 16px;
-    padding:0 20px;
+    padding:0 16px;
     font-weight:600;
     clear: right;
 }
@@ -101,7 +101,8 @@ label {
     .rsLogo{
         position: fixed;
         display: inline-flex;
-        margin: 5px 135px;
+        margin: 5px 150px;
+        font-weight: 600;
     }
     nav ul li.search-container{
         margin: auto;
@@ -124,11 +125,18 @@ label {
         //border-bottom: 1px solid #EAEAEB;
         margin: 0;
     }
+    .items>a:active + .items{
+         transform-origin: 0% 10%;
+        transform: translate(0,0%);
+        z-index: 2;
+        display: none;
+     }
+     
    
     #toggle:checked + .items {
-        transition: ease-in 0.5s;
         display: block;
     }
+   
 
 }
 @media screen and (max-width: 1052px) {
