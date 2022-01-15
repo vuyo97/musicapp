@@ -35,7 +35,7 @@ const getArtistData = asyncWrapper(async (req,res) => {
 
  
 const login = asyncWrapper(async (req,res)=>{
-    const apiAuth=`https://connect.deezer.com/oauth/auth.php?app_id=514702&redirect_uri=http://localhost:5000&perms=basic_access,email`;
+    const apiAuth=`https://connect.deezer.com/oauth/auth.php?app_id=514702&redirect_uri=https://deezer-node.herokuapp.com&perms=basic_access,email`;
   await axios.get(apiAuth).then(result => {
      res.status(200).send(result.data)
  });
