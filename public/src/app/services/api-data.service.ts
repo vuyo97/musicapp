@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http'
 import { ActivatedRoute, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router'
 
@@ -9,12 +9,33 @@ import '../common/search-bar/search-bar.component'
   providedIn: 'root',
 })
 
-export class ApiDataService {
+export class ApiDataService implements OnInit {
   [x: string]: any;
   searchName : any;
   searchid : any;
   constructor(private http: HttpClient,private readonly route: ActivatedRoute,private router:Router) {
     this.toptracks = [];
+  }
+  ngOnInit(): void {
+     // console.log(localStorage.userObj);
+     this.user = localStorage.getItem('userObj');
+     this.user = JSON.parse(this.user);
+
+      // if user is null
+      if(this.user.name == undefined || this.user.name ==  null || this.user.name.length == 0) {
+        // go for login
+        alert("Please log in!");
+      }else {
+        // redirect to home through navigateByURL()
+        this.user= localStorage.getItem('userObj');
+        this.user = JSON.parse(this.user);
+        this.user.name = this.user.name[0].toUpperCase() + this.user.name.substring(1);
+        alert("Welcome back " + this.user.name);
+        this.loggedInUser = this.user;
+        console.log(" service: "+this.user.name);
+       //isLoggedin = true;
+        
+      }
   }
 
    //Gets indivdual artist by name from API search

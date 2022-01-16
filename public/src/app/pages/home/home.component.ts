@@ -25,24 +25,7 @@ export class HomeComponent implements OnInit {
   
   
   ngOnInit(): void {
-   // console.log(localStorage.userObj);
-     this.user = localStorage.getItem('userObj');
-     this.user = JSON.parse(this.user);
-
-      // if user is null
-      if(this.user.name == undefined || this.user.name ==  null || this.user.name.length == 0) {
-        // go for login
-        alert("Please log in!");
-      }else {
-        // redirect to home through navigateByURL()
-        this.user= localStorage.getItem('userObj');
-        this.user = JSON.parse(this.user);
-        this.user.name = this.user.name[0].toUpperCase() + this.user.name.substring(1);
-        alert("Welcome back " + this.user.name);
-        console.log(this.user.name);
-       //isLoggedin = true;
-        
-      }
+  
   }
 
   playRadio(event:any){

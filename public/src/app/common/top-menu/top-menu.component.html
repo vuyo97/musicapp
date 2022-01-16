@@ -7,21 +7,24 @@
 <div class="items w3-animate-opacity">
     
     <li class="logo"><a routerLink="/" >Deezer</a></li>
-    <li><a routerLink="/"  [ngClass]="{'active': true}">Home</a></li>
-    <li><a routerLink="/browse">For You</a></li>
-    <li><a routerLink="/charts/albums">Albums</a></li>
-    <li><a routerLink="/charts/podcasts">Podcasts</a></li>
-    <li> <a routerLink="/charts/radio">Radio</a></li>
+    <li><a routerLink="/"  [ngClass]="{'active': true}" class="link">Home</a></li>
+    <li><a routerLink="/browse" class="link">For You</a></li>
+    <li><a routerLink="/charts/albums" class="link">Albums</a></li>
+    <li><a routerLink="/charts/podcasts" class="link">Podcasts</a></li>
+    <li> <a routerLink="/charts/radio" class="link">Radio</a></li>
     <li class="search-container">
       <app-search-bar></app-search-bar>
     </li>
     <li>  
-      <a href="" style="padding: 0px 6px;"> 
-        <img src="{{user}}" class="w3-circle user" />
+      <a href="" *ngIf="loggedInUser" style="padding: 0px 6px;"> 
+        <img src="{{loggedInUser.picture_small}}" class="w3-circle user" />
       </a>
-      <span class="username">Vuyo</span>
+      <span class="username link">{{loggedInUser.name}}</span>
     </li>
-    <li style="padding: 0px 18px;"><a  class="w3-bar-item" id="loginbtn" onclick="login()">Login</a></li>
+    <li style="padding: 0px 18px;">
+      <a  class="w3-bar-item" id="loginbtn" *ngIf="!loggedInUser" onclick="login()">Login</a>
+      <a  class="w3-bar-item" id="loginbtn" *ngIf="loggedInUser" onclick="logout()">Logout</a>
+    </li>
 </div>
 </ul>
 </nav>

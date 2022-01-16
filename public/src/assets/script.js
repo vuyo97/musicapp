@@ -1,4 +1,6 @@
-$('#toggle input').prop( "checked" ,false);
+$(".link").click(function(){
+$('#toggle input').prop("checked" ,false);
+});
 
 window.dzAsyncInit = function() {
   DZ.init({
@@ -40,7 +42,14 @@ window.dzAsyncInit = function() {
       }
     }, {perms: 'basic_access,email'});
   }
-
+  
+  function logout(){
+    DZ.logout(function() {
+      localStorage.removeItem("userObj");
+      console.log("logged out" + JSON.stringify(localStorage));
+      window.location("/")
+    });
+  }
   
 DZ.getLoginStatus(function(response) {
   if (response.authResponse) {
