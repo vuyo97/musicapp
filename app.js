@@ -7,6 +7,7 @@ const path = require('path');
 //const helmet=  require('helmet');
 //const contentSecurityPolicy  = require('helmet-csp');
 const app = express();
+var cors_proxy = require('cors-anywhere');
 
 var favicon = require('serve-favicon')
 require('dotenv').config();
@@ -17,49 +18,28 @@ const connectDB = require('./db/connect');
 const notFound = require('./middleware/not-found');
 const errorHandlerMiddleware= require('./middleware/error-handler');
 
-
+var host = process.env.HOST || '0.0.0.0';
 const port = process.env.PORT || 5000;
-
-//  app.use(contentSecurityPolicy ({
-//     reportOnly: false
-//  }));
-// app.use(
-//     helmet()
-//   );
-//  app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
-// //  app.use(helmet({ crossOriginEmbedderPolicy: true }));
-// app.use(
-//     helmet.frameguard({
-//       action: "sameorigin",
-//     })
-//   );
-
-//   app.use(
-//     helmet.permittedCrossDomainPolicies({
-//       permittedPolicies: "all",
-//     })
-//   );
- 
-
-  
-  //app.use(helmet({ crossOriginOpenerPolicy: true }));
-
-
-//console.log(helmet.contentSecurityPolicy.getDefaultDirectives())
 
 
 //middleware
-app.use(cors());
-app.use((req, res, next) => {
-  res.setHeader("X-Frame-Options", "ALLOW-FROM  https://connect.deezer.com/");
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  next();
+// app.use(cors());
+// app.use((req, res, next) => {
+//   res.setHeader("X-Frame-Options", "ALLOW-FROM  https://www.deezer.com/");
+//   res.setHeader("Access-Control-Allow-Origin", "*");
+//   next();
+// });
+
+cors_proxy.createServer({
+  originWhitelist: [], // Allow all origins
+  requireHeader: ['origin', 'x-requested-with'],
+  removeHeaders: ['cookie', 'cookie2']
 });
 
 app.options("/callback", cors());
 app.get("/callback", cors(), (req, res) => {
   console.info("channel call works");
-  res.sendFile(path.join(__dirname , 'channel.html'));
+  res.sendFile(path.join(__dirname,'channel.html'));
 });
 
 
@@ -76,7 +56,6 @@ app.get('/*',(req,res)=>{
     res.sendFile(path.join(__dirname,'/public/dist/musicdb-app-angular/index.html'));
 });
 //app.get('/cool', (req, res) =>{ res.send(cool())});
-
 
 app.use(notFound);
 app.use(errorHandlerMiddleware);

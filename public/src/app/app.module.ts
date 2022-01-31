@@ -12,6 +12,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { BrowseComponent } from './pages/browse/browse.component';
 import { ArtistsComponent } from './pages/artists/artists.component';
 import { ApiDataService } from './services/api-data.service';
+import { AuthService } from './services/auth.service';
 import { LoginComponent } from './common/login/login.component';
 import { PodcastsComponent } from './pages/podcasts/podcasts.component';
 import { RadioComponent } from './pages/radio/radio.component';
@@ -27,6 +28,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { ChannelComponent } from './pages/podcasts/channel/channel.component';
 import { AlbumComponent } from './pages/albums/album/album.component';
 import 'animate.css';
+
 
 
 
@@ -66,7 +68,7 @@ import 'animate.css';
    // FontAwesomeModule
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
-  providers: [ApiDataService],
+  providers: [ApiDataService,AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { 

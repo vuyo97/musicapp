@@ -1,9 +1,9 @@
-import { Component , OnInit} from '@angular/core';
+import { Component , OnInit, Input, Output, EventEmitter} from '@angular/core';
 import { ApiDataService } from './services/api-data.service';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-
-
+import { AuthService } from './services/auth.service';
+import 'rxjs-compat/add/operator/map'
 
 @Component({
   selector: 'app-root',
@@ -14,34 +14,29 @@ import { HttpClient } from '@angular/common/http';
 export class AppComponent implements OnInit{
   title = 'musicdb-app';
  
-  constructor(private apiDataService:ApiDataService){
-    this.loggedInUser = this.user;
+  constructor(private apiDataService:ApiDataService ,private authService:AuthService){
   }
-
+ isLoggedIn = false;
  user:any;
- loggedInUser:any={};
+ //loggedInUser:any={};
 
-  ngOnInit(): void {
-  // console.log(localStorage.userObj);
-  this.user = localStorage.getItem('userObj');
-  this.user = JSON.parse(this.user);
+  ngOnInit() {  
+    DZ.init({
+      appId  : '514702',
+      channelUrl : `http://localhost:5000/callback`,
+    //  PlayerOptions : {muted:false},
+      player : {
+        //  container: 'player',
+        onload : function(options){
+          console.log(options);
+        }
+        
+      }
+      });
+   this.authService.checkLogin();
+  //console.log(result);
 
-   // if user is null
-   if(this.user.name == undefined || this.user.name ==  null || this.user.name.length == 0) {
-     // go for login
-     alert("Please log in!");
-   }else {
-     // redirect to home through navigateByURL()
-     this.user= localStorage.getItem('userObj');
-     this.user = JSON.parse(this.user);
-     this.user.name = this.user.name[0].toUpperCase() + this.user.name.substring(1);
-   //  alert("Welcome back " + this.user.name);
-     this.loggedInUser = this.user;
-     console.log(this.user.name);
-    //isLoggedin = true;
-     
-   }
   }
-  
+
  
 }

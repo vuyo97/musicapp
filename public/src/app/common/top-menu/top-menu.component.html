@@ -16,14 +16,14 @@
       <app-search-bar></app-search-bar>
     </li>
     <li>  
-      <a href="" *ngIf="loggedInUser" style="padding: 0px 6px;"> 
-        <img src="{{loggedInUser.picture_small}}" class="w3-circle user" />
+      <a style="padding: 0px 6px;"> 
+        <img *ngIf="isLoggedIn" src="{{user.picture_medium}}" class="w3-circle user" />
       </a>
-      <span class="username link">{{loggedInUser.name}}</span>
+      <span *ngIf="isLoggedIn" class="username link">{{user.firstname}}</span>
     </li>
     <li style="padding: 0px 18px;">
-      <a  class="w3-bar-item" id="loginbtn" *ngIf="!loggedInUser" onclick="login()">Login</a>
-      <a  class="w3-bar-item" id="loginbtn" *ngIf="loggedInUser" onclick="logout()">Logout</a>
+      <a  class="w3-bar-item" id="loginbtn" [hidden]="isLoggedIn" (click)="login()">Login</a>
+      <a  class="w3-bar-item" id="loginbtn"  *ngIf="isLoggedIn" (click)="logout()">Logout</a>
     </li>
 </div>
 </ul>

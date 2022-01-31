@@ -18,9 +18,9 @@ export class RadioComponent implements OnInit {
   @Input() isRadioPage: boolean = true;
   ngOnInit() :void{
      this.apiDataService.initRadio().subscribe((radioData) =>{
-      console.log(radioData);
+     // console.log(radioData);
       this.radio = [radioData];
-      console.log(this.radio);
+     // console.log(this.radio);
      })
   }
   

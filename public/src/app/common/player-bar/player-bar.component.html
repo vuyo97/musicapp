@@ -1,5 +1,38 @@
-<script src="https://e-cdns-files.dzcdn.net/js/min/dz.js"></script>
-<div class="bar">
-    <!-- <div id="dz-root"></div> -->
-  <button (click)='play()'> play</button>
+
+
+<div class="bar w3-row">
+  <div class="w3-col m6 s12 l12 w3-center cs-player">
+    <div class="w3-row w3-col m12">
+      <div class="w3-col m12">
+        <div class="w3-col m2" style="margin:auto;padding: 15px;height: 100%;border-right: 1px solid lightgrey;">
+        <a class="control w3-hover-opacity" onclick="DZ.player.prev(); return false;"><img src="./assets/images/back2.png" class="controls"></a>
+        <a class="control w3-hover-opacity" onclick="DZ.player.play(); return false;"><img src="./assets/images/play2.png" class="controls"></a>
+        <a class="control w3-hover-opacity" onclick="DZ.player.pause(); return false;"><img src="./assets/images/pause.png" class="controls"></a>
+        <a class="control w3-hover-opacity" onclick="DZ.player.next(); return false;"><img src="./assets/images/next2.png" class="controls"></a>
+       </div>
+
+        <div class="w3-col m8" style="padding: 10px 20px;">
+          <div class="w3-col m12">
+          <small class="w3-left" ><p id="timer_begin">0:00</p></small>
+          <small class="w3-right" ><p id="timer_end">0:00</p></small>
+         <p style="height: 40%;"> <small class="w3-center" id="song_title" [innerHTML]="songTitle" style="height:50px;overflow:auto;">{{songTitle}}</small></p>
+         
+          
+           <div id="slider_seek" class="progressbarplay" >
+            <div class="playerbar" style="width: 0%;"></div>
+           </div>
+          
+        </div>
+        </div>
+
+        <div class="w3-col m1 w3-center" style=" height: 100%;width: 15%;padding: 3px 10px;border-left: 1px solid lightgray;">
+          <div style="height: 100%;width: 40%;background-color: blue;margin:auto;"></div>
+        </div>
+      </div>
+      
+  </div>
+  </div>
+  <div id="player" class="w3-col m3 s3 l3">
+  <pre  id="playerLogger"></pre> 
+  </div>
 </div>

@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input, Output, EventEmitter } from '@angular/core';
 import {ApiDataService} from '../../services/api-data.service';
+import { AuthService } from 'src/app/services/auth.service';
+import { observable, Observable } from 'rxjs';
 
 
 @Component({
@@ -8,18 +10,63 @@ import {ApiDataService} from '../../services/api-data.service';
   styleUrls: ['./top-menu.component.scss']
 })
 export class TopMenuComponent implements OnInit {
-  loggedInUser:any;
-  constructor(public apiDataService:ApiDataService) { }
-  userImg='../../../assets/images/user.png';
+  //loggedInUser:any;
+  user:any;
+  loggedTitle:any;
+  isLoggedIn:any;
+  loggedData: any;
+  lgData: any;
+  //  @Output() public getLoggedInUser: EventEmitter<any> = new EventEmitter <any>();
 
-  ngOnInit(): void {
-    console.log(localStorage.userObj.name +localStorage.userObj.picture_small);
-    this.loggedInUser = JSON.parse(localStorage.userObj);
-     this.loggedInUser.name = this.loggedInUser.name[0].toUpperCase() + this.loggedInUser.name.substring(1);
-     alert("Welcome back " + this.loggedInUser.name);
-    // this.loggedInUser = this.user;
+  constructor(public apiDataService:ApiDataService,private authService: AuthService) { 
+    authService.getLoggedStatus.subscribe(data => this.changeLogged(data));
+    
+   // authService.getLoggedInUser.subscribe(username => this.changeLogged(username));
+
   }
-  
+  userImg='../../../assets/images/user.png';
+ 
+  ngOnInit(): void {
+   /*this.lgData = localStorage.getItem('LoggedData');
+ 
+   this.lgData = JSON.parse(this.lgData );
+   console.log(this.lgData );
+  if(this.lgData==true){this.isLoggedIn = this.lgData.status; this.loggedTitle = 'Logout'}else{this.isLoggedIn = this.lgData.status; this.loggedTitle = 'Login'}
+  */
+  }
+
+  private changeLogged(data: any){
+    //console.log(data);
+    
+    if(data.status == true){
+      console.log("Changed loggedIn : " + JSON.stringify(data));
+      this.isLoggedIn = data.status;
+      this.loggedTitle = 'Logout'
+      this.user = data.user;
+
+      this.loggedData = data;
+    }else{
+      console.log("Changed loggedIn : " + JSON.stringify(data));
+      this.loggedTitle = 'Login'
+       this.user = ' ';
+ 
+       this.loggedData = data;
+    }
+    localStorage.setItem("LoggedData",JSON.stringify(this.loggedData));
+   // return this.loggedData;
+  //   this.getLoggedInUser.subscribe((user) =>// this.username = user
+  //   console.log(user)
+  //  // this.useravi= username.picture_small
+  //   );
+   // console.log(this.username);
+  }
+
+  login(){
+    this.authService.login();
+  }
+  logout(){
+    this.authService.logout();
+  }
   
 
 }

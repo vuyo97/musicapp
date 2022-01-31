@@ -16,7 +16,7 @@ export class TracksComponent implements OnInit {
     
       this.tracklist = [tracklistData];
       this.tracklist = this.tracklist[0].data.data;
-      console.log(this.tracklist);
+     // console.log(this.tracklist);
    })
   }
 

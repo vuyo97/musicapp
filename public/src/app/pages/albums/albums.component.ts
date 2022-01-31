@@ -15,17 +15,9 @@ export class AlbumsComponent implements OnInit {
     this.apiDataService.getChartAlbums().subscribe((albumsData)=>{
     
       this.albums = [albumsData];
-      console.log(this.albums);
+      //console.log(this.albums);
    }
    )
   }
-
-  // toggleWithDescription(tooltip: any, description: string) {
-  //   if (tooltip.isOpen()) {
-  //     tooltip.close();
-  //   } else {
-  //     tooltip.open({ description });
-  //   }
-  // }
 
 }

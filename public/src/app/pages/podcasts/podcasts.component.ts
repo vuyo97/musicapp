@@ -35,7 +35,7 @@ export class PodcastsComponent implements OnInit {
       this.podcasts = [podcastsData];
       this.podcasts = this.podcasts[0].data.data;
       this.channels=this.podcasts[0].data;
-      console.log(this.podcasts);
+    //  console.log(this.podcasts);
      })
   }
 
@@ -50,10 +50,8 @@ export class PodcastsComponent implements OnInit {
   getToPodcast(event :any){
     var idAttr = event.srcElement.attributes.id;
     var value = idAttr.nodeValue;
-    console.log(value)
-    console.log(this.podcasts);
-
-  //  this.router.navigateByUrl('/podcast/channel', { state: { channel: this.channel } });
+  //  console.log(value)
+   // console.log(this.podcasts);
    
    this.podcasts.forEach((element:any) => {
     if(element.id == value){
