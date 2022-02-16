@@ -1,7 +1,37 @@
-import { Component, OnInit,Input, Output, EventEmitter } from '@angular/core';
+import { Component,Type} from '@angular/core';
 import {ApiDataService} from '../../services/api-data.service';
 import { AuthService } from 'src/app/services/auth.service';
-import { observable, Observable } from 'rxjs';
+import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
+@Component({
+  selector: 'ngbd-modal-confirm',
+  template: `
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-title">Logout</h4>
+    <a  class="close" aria-describedby="modal-title" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true" style="font-size: 25px;">&times;</span>
+    </a>
+  </div>
+  <div class="modal-body">
+    <p><strong><span class="w3-text-cyan">Vuyo </span>, Are you sure you want to logout ?</strong></p>
+  
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-secondary" (click)="modal.dismiss('cancel click')">Cancel</button>
+    <button type="button" class="btn btn-danger" (click)="logout()">logout</button>
+  </div>
+  `,
+  styleUrls: ['./top-menu.component.scss']
+
+})
+
+export class NgbdModalConfirm {
+  constructor(public modal: NgbActiveModal,private authService: AuthService) {}
+  logout(){
+    this.authService.logout();
+  }
+}
+
 
 
 @Component({
@@ -9,32 +39,20 @@ import { observable, Observable } from 'rxjs';
   templateUrl: './top-menu.component.html',
   styleUrls: ['./top-menu.component.scss']
 })
-export class TopMenuComponent implements OnInit {
+
+export class TopMenuComponent {
   //loggedInUser:any;
   user:any;
   loggedTitle:any;
   isLoggedIn:any;
   loggedData: any;
-  lgData: any;
-  //  @Output() public getLoggedInUser: EventEmitter<any> = new EventEmitter <any>();
+  closeResult = '';
+   
 
-  constructor(public apiDataService:ApiDataService,private authService: AuthService) { 
+  constructor(public apiDataService:ApiDataService,private authService: AuthService,private modalService: NgbModal) { 
     authService.getLoggedStatus.subscribe(data => this.changeLogged(data));
-    
-   // authService.getLoggedInUser.subscribe(username => this.changeLogged(username));
-
   }
-  userImg='../../../assets/images/user.png';
- 
-  ngOnInit(): void {
-   /*this.lgData = localStorage.getItem('LoggedData');
- 
-   this.lgData = JSON.parse(this.lgData );
-   console.log(this.lgData );
-  if(this.lgData==true){this.isLoggedIn = this.lgData.status; this.loggedTitle = 'Logout'}else{this.isLoggedIn = this.lgData.status; this.loggedTitle = 'Login'}
-  */
-  }
-
+  
   private changeLogged(data: any){
     //console.log(data);
     
@@ -64,9 +82,26 @@ export class TopMenuComponent implements OnInit {
   login(){
     this.authService.login();
   }
+
+  open() {
+    let user = localStorage.getItem("LoggedData");
+    console.log(user);
+    this.modalService.open(NgbdModalConfirm);
+  }
+
+  // private getDismissReason(reason: any): string {
+  //   if (reason === ModalDismissReasons.ESC) {
+  //     return 'by pressing ESC';
+  //   } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+  //     return 'by clicking on a backdrop';
+  //   } else {
+  //     return `with: ${reason}`;
+  //   }
+  // }
+
   logout(){
     this.authService.logout();
   }
   
-
 }
+

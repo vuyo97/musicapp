@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { BrowseComponent } from './pages/browse/browse.component';
 import { ArtistsComponent } from './pages/artists/artists.component';
-import { LoginComponent } from './common/login/login.component';
+//import { LoginComponentModal } from './common/login/login.component';
 import { PodcastsComponent } from './pages/podcasts/podcasts.component';
 import { RadioComponent } from './pages/radio/radio.component';
 import { ProfileComponent } from './pages/profile/profile.component';
@@ -19,7 +19,7 @@ const routes: Routes = [
   {path:'browse' , component: BrowseComponent},
   {path:'artists' , component: ArtistsComponent},
   {path:'podcasts' , component: PodcastsComponent},
-  {path:'login' , component: LoginComponent},
+ // {path:'login' , component: LoginComponentModal},
   {path:'profile/:id' , component: ProfileComponent},
   {path:'charts/radio' , component: RadioComponent},
   {path:'charts/tracks' , component: TracksComponent},

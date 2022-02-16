@@ -13,7 +13,7 @@ import { BrowseComponent } from './pages/browse/browse.component';
 import { ArtistsComponent } from './pages/artists/artists.component';
 import { ApiDataService } from './services/api-data.service';
 import { AuthService } from './services/auth.service';
-import { LoginComponent } from './common/login/login.component';
+//import { LoginComponentModal } from './common/login/login.component';
 import { PodcastsComponent } from './pages/podcasts/podcasts.component';
 import { RadioComponent } from './pages/radio/radio.component';
 import { SearchBarComponent } from './common/search-bar/search-bar.component';
@@ -24,13 +24,12 @@ import { TabComponent } from './pages/profile/tabs/tab.component';
 import { AlbumsComponent } from './pages/albums/albums.component';
 import { TracksComponent } from './pages/tracks/tracks.component';
 import { SearchComponent } from './pages/search/search.component';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+//import {LoginComponentModal} from './common/login/login.component';
+
 import { ChannelComponent } from './pages/podcasts/channel/channel.component';
 import { AlbumComponent } from './pages/albums/album/album.component';
 import 'animate.css';
-
-
-
 
 // import { FontAwesomeModule, FaIconLibrary ,FaConfig } from '@fortawesome/angular-fontawesome';
 // import { fas } from '@fortawesome/free-solid-svg-icons';
@@ -44,7 +43,7 @@ import 'animate.css';
     HomeComponent,
     BrowseComponent,
     ArtistsComponent,
-    LoginComponent,
+   // LoginComponentModal,
     PodcastsComponent,
     RadioComponent,
     SearchBarComponent,
@@ -69,7 +68,9 @@ import 'animate.css';
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   providers: [ApiDataService,AuthService],
-  bootstrap: [AppComponent]
+  exports:[TopMenuComponent],
+  bootstrap: [AppComponent,TopMenuComponent]
+  
 })
 export class AppModule { 
   // constructor(library: FaIconLibrary,faConfig: FaConfig) {

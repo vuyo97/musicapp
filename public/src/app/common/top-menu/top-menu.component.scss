@@ -98,10 +98,32 @@ label {
     display: none;
 }
 
+.modal-footer {
+    border-top: none; 
+}
+
+.modal-header { 
+    font-size: 24px;
+    padding: 0px 13px;
+}
+
+.modal-title {
+    margin-bottom: 8px; 
+    line-height: 1.5;
+    font-weight: 100;
+    font-size: 17px;
+}
+.modal-content {
+    border: none; 
+}
+
 /*********/
 
 @media screen and (max-width: 500px) {
-
+    #loginbtn{
+        border-left: none;
+        cursor: pointer;
+    }
     .rsLogo{
         position: fixed;
         display: inline-flex;

@@ -92,6 +92,11 @@ export class AuthService {
 
   }
 
+  getUser() : void {
+    let user = localStorage.getItem("LoggedData");
+    console.log(user);
+ }
+
   logout() : void {
        DZ.logout();
        localStorage.removeItem("userObj");
